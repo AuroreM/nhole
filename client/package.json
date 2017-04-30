@@ -1,0 +1,25 @@
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-redux": "^4.4.1",
+    "redux": "^3.3.1",
+    "styled-components": "1.1.2"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "enzyme": "2.6.0",
+    "react-addons-test-utils": "15.4.1",
+    "react-scripts": "0.9.5",
+    "whatwg-fetch": "^2.0.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

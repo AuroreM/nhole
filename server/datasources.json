@@ -1,0 +1,15 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "nholeDb": {
+    "host": "127.0.0.1",
+    "port": 5432,
+    "database": "nholeDb",
+    "name": "nholeDb",
+    "user": "aurorem",
+    "password": "pswd",
+    "connector": "postgresql"
+  }
+}

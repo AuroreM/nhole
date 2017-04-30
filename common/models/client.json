@@ -1,0 +1,41 @@
+{
+  "name": "Client",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "firstname": {
+      "type": "string"
+    },
+    "lastname": {
+      "type": "string",
+      "required": true
+    },
+    "number": {
+      "type": "string",
+      "required": true
+    },
+    "morning": {
+      "type": "boolean",
+      "required": true
+    },
+    "afternoon": {
+      "type": "boolean",
+      "required": true
+    },
+    "lunch": {
+      "type": "boolean",
+      "required": true
+    },
+    "evening": {
+      "type": "boolean",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
