@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import NotificationSystem from 'react-notification-system';
 
 const Info = styled.div`
   justify-content: center;
-  margin: 25px;
+  margin: 20px;
   display: flex;
   width: 60vw;
 `;

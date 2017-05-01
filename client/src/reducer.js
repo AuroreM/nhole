@@ -4,6 +4,10 @@ export default function(state = Map(), action) {
   switch (action.type) {
     default:
       break;
+    case 'REGISTER_CLIENT_FAIL':
+      break;
+    case 'REGISTER_CLIENT_SUCCESS':
+      return Map();
     case 'SET_STATE':
       return state.merge(action.state);
     case 'UPDATE_CLIENT_INFO':

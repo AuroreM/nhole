@@ -1,15 +1,29 @@
+import { Map } from 'immutable';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { compose, createStore } from 'redux';
+import { applyMiddleware, compose, createStore } from 'redux';
+import createSagaMiddleware from 'redux-saga'
+import { ClientAdditionSaga } from './components/ClientAddition/sagas'
 import ClientAdditionContainer from './containers/ClientAdditionContainer';
 import reducer from './reducer';
 
-const createStoreDevTools = compose(
-  window.devToolsExtension ? window.devToolsExtension() : f => f
-)(createStore);
-// eslint-disable-next-line
-const store = createStoreDevTools(reducer);
+const sagaMiddleWare = createSagaMiddleware()
+const enhancers = []
+let composeEnhancers = compose
+const composeWithDevToolsExtension = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+if (typeof composeWithDevToolsExtension === 'function') {
+  composeEnhancers = composeWithDevToolsExtension
+}
+const store = createStore(
+  reducer,
+  Map(),
+  composeEnhancers(
+    applyMiddleware(sagaMiddleWare),
+    ...enhancers
+  )
+)
+sagaMiddleWare.run(ClientAdditionSaga);
 
 store.dispatch({
   type: 'SET_STATE',
