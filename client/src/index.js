@@ -5,7 +5,8 @@ import { Provider } from 'react-redux';
 import { applyMiddleware, compose, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga'
 import { ClientAdditionSaga } from './components/ClientAddition/sagas'
-import ClientAdditionContainer from './containers/ClientAdditionContainer';
+import { ClientsDisplaySaga } from './components/ClientsDisplay/sagas'
+import AppContainer from './components/App/App';
 import reducer from './reducer';
 
 const sagaMiddleWare = createSagaMiddleware()
@@ -24,10 +25,12 @@ const store = createStore(
   )
 )
 sagaMiddleWare.run(ClientAdditionSaga);
+sagaMiddleWare.run(ClientsDisplaySaga);
 
 store.dispatch({
   type: 'SET_STATE',
   state: {
+    clients: {},
     firstname: '',
     lastname: '',
     number: '',
@@ -41,7 +44,7 @@ store.dispatch({
 
 ReactDOM.render(
   <Provider store={store}>
-    <ClientAdditionContainer />
+    <AppContainer />
   </Provider>,
   document.getElementById('app')
 );

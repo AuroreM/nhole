@@ -8,6 +8,11 @@ export default function(state = Map(), action) {
       break;
     case 'REGISTER_CLIENT_SUCCESS':
       return Map();
+    case 'GET_CLIENTS_FAIL':
+      break;
+    case 'GET_CLIENTS_SUCCESS':
+      return state
+        .set('clients', action.clients);
     case 'SET_STATE':
       return state.merge(action.state);
     case 'UPDATE_CLIENT_INFO':

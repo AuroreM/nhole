@@ -12,7 +12,7 @@ const FooterContainer = styled.div`
 
 const Footer = () => (
   <FooterContainer>
-    Build with love&nbsp;<span style={{ color: 'rgb(220,20,60)' }}>&#10084;</span>
+    Built with love&nbsp;<span style={{ color: 'rgb(220,20,60)' }}>&#10084;</span>
   </FooterContainer>
 );
 

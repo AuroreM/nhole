@@ -1,16 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Footer from '../Footer/Footer';
-import Header from '../Header/Header';
 import InfoUpdateContainer from '../../containers/InfoUpdateContainer';
 import SlotUpdateContainer from '../../containers/SlotUpdateContainer';
-
-const App = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  font-family: "Courier New", Courier, monospace;
-`;
 
 const Body = styled.div`
   flex: 1;
@@ -44,17 +35,13 @@ const Button = styled.button`
 class ClientAddition extends React.Component {
   render() {
     return (
-      <App>
-        <Header />
-        <Body>
-          <Title>Ajoutez un nouveau client</Title>
-          <InfoUpdateContainer />
-          <Title>Choisissez ses créneaux</Title>
-          <SlotUpdateContainer />
-          <Button onClick={this.props.registerClient}>Enregistrer</Button>
-        </Body>
-        <Footer />
-      </App>
+      <Body>
+        <Title>Ajoutez un nouveau client</Title>
+        <InfoUpdateContainer />
+        <Title>Choisissez ses créneaux</Title>
+        <SlotUpdateContainer />
+        <Button onClick={this.props.registerClient}>Enregistrer</Button>
+      </Body>
     );
   }
 };

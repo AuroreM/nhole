@@ -23,7 +23,7 @@ export function* sendClientToAPI() {
   });
   console.log(body)
   try {
-    const questionData = yield call(
+    const response = yield call(
       request,
       requestURL,
       {
@@ -34,7 +34,7 @@ export function* sendClientToAPI() {
         }
       }
     );
-    console.log(questionData);
+    console.log(response);
     yield put(registerClientSuccess());
   } catch (err) {
     yield put(registerClientFail());
