@@ -5,9 +5,21 @@ export default function(state = Map(), action) {
     default:
       break;
     case 'REGISTER_CLIENT_FAIL':
-      break;
+      return state
+        .set('message', 'Un problème est survenu lors de l\'enregistrement');
     case 'REGISTER_CLIENT_SUCCESS':
-      return Map();
+      const expectedState = {
+        clients: {},
+        firstname: '',
+        lastname: '',
+        number: '',
+        morning: false,
+        lunch: false,
+        afternoon: false,
+        evening: false,
+        message: 'Client enregistré ! '
+      }
+      return state.merge(expectedState);
     case 'GET_CLIENTS_FAIL':
       break;
     case 'GET_CLIENTS_SUCCESS':

@@ -1,18 +1,17 @@
-import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Checkbox from '../components/Checkbox/Checkbox';
 import * as updateClientSlotAction from '../components/SlotUpdate/actions';
 
-class CheckboxContainer extends React.Component {
-  render() {
-    let { dispatch  } = this.props;
-    let boundActionCreators = bindActionCreators(updateClientSlotAction, dispatch);
-
-    return (
-      <Checkbox slot={this.props.slot} label={this.props.label} {...boundActionCreators} />
-    );
-  }
+const MapDispatchToProps = (dispatch) => {
+  return bindActionCreators(updateClientSlotAction , dispatch)
 }
 
-export default connect()(CheckboxContainer)
+const mapStateToProps = (state) => ({
+  morning: state.get('morning'),
+  lunch: state.get('lunch'),
+  evening: state.get('evening'),
+  afternoon: state.get('afternoon'),
+});
+
+export default connect(mapStateToProps, MapDispatchToProps)(Checkbox)

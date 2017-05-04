@@ -24,6 +24,7 @@ class Checkbox extends React.Component {
           <Input
             autoComplete="off"
             type="checkbox"
+            checked={this.props[this.props.slot]}
             onChange={this.handleCheckboxChange.bind(this)} />
           {this.props.label}
         </Label>

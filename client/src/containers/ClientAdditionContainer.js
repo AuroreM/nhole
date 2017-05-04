@@ -1,18 +1,18 @@
-import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import ClientAddition from '../components/ClientAddition/ClientAddition';
 import * as ClientAdditionActions from '../actions';
 
-class ClientAdditionContainer extends React.Component {
-  render() {
-    let { dispatch  } = this.props;
-    let boundActionCreators = bindActionCreators(ClientAdditionActions, dispatch);
-
-    return (
-      <ClientAddition {...boundActionCreators} />
-    );
-  }
+const MapDispatchToProps = (dispatch) => {
+  return bindActionCreators(ClientAdditionActions , dispatch)
 }
 
-export default connect()(ClientAdditionContainer)
+const mapStateToProps = (state) => ({
+  morning: state.get('morning'),
+  lunch: state.get('lunch'),
+  evening: state.get('evening'),
+  afternoon: state.get('afternoon'),
+  message: state.get('message'),
+});
+
+export default connect(mapStateToProps, MapDispatchToProps)(ClientAddition)

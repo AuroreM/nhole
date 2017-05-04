@@ -42,23 +42,32 @@ class InfoUpdate extends React.Component {
           <Label>Prénom :</Label>
           <Input id="firstname"
              autoComplete="off"
+             value={this.props.firstname}
              onChange={this.onTypeChange.bind(this)}/>
         </Info>
         <Info>
           <Label>Nom :</Label>
           <Input id="lastname"
              autoComplete="off"
+             value={this.props.lastname}
              onChange={this.onTypeChange.bind(this)}/>
         </Info>
         <Info>
           <Label>Numéro de téléphone :</Label>
           <Input id="number"
              autoComplete="off"
+             value={this.props.number}
              onChange={this.onTypeChange.bind(this)}/>
         </Info>
       </div>
     );
   }
+};
+
+InfoUpdate.propTypes = {
+  firstname: React.PropTypes.string.isRequired,
+  lastname: React.PropTypes.string.isRequired,
+  number: React.PropTypes.string.isRequired,
 };
 
 export default InfoUpdate;

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import InfoUpdateContainer from '../../containers/InfoUpdateContainer';
-import SlotUpdateContainer from '../../containers/SlotUpdateContainer';
+import SlotUpdate from '../../components/SlotUpdate/SlotUpdate';
 
 const Body = styled.div`
   flex: 1;
@@ -32,6 +32,12 @@ const Button = styled.button`
   }
 `;
 
+const Message = styled.div`
+  margin-top: 50px;
+  color: rgb(220,20,60);
+  font-weight: bold;
+`;
+
 class ClientAddition extends React.Component {
   render() {
     return (
@@ -39,8 +45,9 @@ class ClientAddition extends React.Component {
         <Title>Ajoutez un nouveau client</Title>
         <InfoUpdateContainer />
         <Title>Choisissez ses créneaux</Title>
-        <SlotUpdateContainer />
+        <SlotUpdate />
         <Button onClick={this.props.registerClient}>Enregistrer</Button>
+        <Message>{this.props.message}</Message>
       </Body>
     );
   }

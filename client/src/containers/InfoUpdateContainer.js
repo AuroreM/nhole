@@ -1,18 +1,16 @@
-import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import InfoUpdate from '../components/InfoUpdate/InfoUpdate';
 import * as updateClientInfoAction from '../components/InfoUpdate/actions';
 
-class InfoUpdateContainer extends React.Component {
-  render() {
-    let { dispatch  } = this.props;
-    let boundActionCreators = bindActionCreators(updateClientInfoAction, dispatch);
-
-    return (
-      <InfoUpdate {...boundActionCreators} />
-    );
-  }
+const MapDispatchToProps = (dispatch) => {
+  return bindActionCreators(updateClientInfoAction , dispatch)
 }
 
-export default connect()(InfoUpdateContainer)
+const mapStateToProps = (state) => ({
+  firstname: state.get('firstname'),
+  lastname: state.get('lastname'),
+  number: state.get('number'),
+});
+
+export default connect(mapStateToProps, MapDispatchToProps)(InfoUpdate)

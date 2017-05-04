@@ -33,19 +33,19 @@ describe('<InfoUpdate />', () => {
     expect(renderedComponent.text()).toContain('Numéro de téléphone');
   });
 
-  // it('should dispatch UPDATE_CLIENT_INFO when typing firstname', () => {
-  //   let updateClientInfoArg = null;
-  //   const updateClientInfo = (arg) => {
-  //     updateClientInfoArg = arg;
-  //     return {};
-  //   };
-  //   const renderedComponent = mount(
-  //     <InfoUpdate updateClientInfo={updateClientInfo} />
-  //   );
-  //   renderedComponent.find('input').at(0).simulate('change', {target: {value: 'Léon'}});
-  //   expect(updateClientInfoArg).toEqual({
-  //     type: 'STORE_FIRSTNAME',
-  //     firstname: "Léon",
-  //   });
-  // });
+   it('should dispatch UPDATE_CLIENT_INFO when typing firstname', () => {
+     let updateClientInfoArg = null;
+     const updateClientInfo = (arg) => {
+       updateClientInfoArg = arg;
+       return {};
+     };
+     const renderedComponent = mount(
+       <InfoUpdate updateClientInfo={updateClientInfo} />
+     );
+     renderedComponent.find('input').at(0).simulate('change', {target: {value: 'Léon'}});
+     expect(updateClientInfoArg).toEqual({
+       type: 'STORE_FIRSTNAME',
+       firstname: "Léon",
+     });
+   });
 });

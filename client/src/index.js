@@ -38,6 +38,7 @@ store.dispatch({
     lunch: false,
     afternoon: false,
     evening: false,
+    message: '',
   }
 });
 
