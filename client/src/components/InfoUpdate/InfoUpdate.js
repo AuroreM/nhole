@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import NotificationSystem from 'react-notification-system';
 
 const Info = styled.div`
   justify-content: center;
@@ -41,6 +40,7 @@ class InfoUpdate extends React.Component {
         <Info>
           <Label>Prénom :</Label>
           <Input id="firstname"
+             ref="firstname"
              autoComplete="off"
              value={this.props.firstname}
              onChange={this.onTypeChange.bind(this)}/>

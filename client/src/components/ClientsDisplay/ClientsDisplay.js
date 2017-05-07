@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
-const Clients = styled.div`
-`;
+import Client from '../Client/Client'
 
 const Title = styled.h1`
   color: rgb(64,64,64);
@@ -12,16 +10,29 @@ const Title = styled.h1`
 `;
 
 class ClientsDisplay extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.getClients();
+  }
+
+  renderClientList() {
+    return (
+      <div>
+        {
+          this.props.clients.map(function(client) {
+            return <Client client={client} />
+          })
+        }
+      </div>
+    );
   }
 
   render() {
     return (
         <div>
           <Title>Vos clients</Title>
-          <Clients>
-          </Clients>
+          {
+            this.props.loading ? <p>LOADING</p> : this.renderClientList()
+          }
         </div>
     );
   }

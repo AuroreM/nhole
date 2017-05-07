@@ -42,7 +42,7 @@ class ClientAddition extends React.Component {
   render() {
     return (
       <Body>
-        <Title>Ajoutez un nouveau client</Title>
+        <Title>Renseignez ses informations</Title>
         <InfoUpdateContainer />
         <Title>Choisissez ses créneaux</Title>
         <SlotUpdate />

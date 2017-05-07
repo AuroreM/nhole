@@ -9,7 +9,7 @@ export default function(state = Map(), action) {
         .set('message', 'Un problème est survenu lors de l\'enregistrement');
     case 'REGISTER_CLIENT_SUCCESS':
       const expectedState = {
-        clients: {},
+        clients: [],
         firstname: '',
         lastname: '',
         number: '',
@@ -17,14 +17,19 @@ export default function(state = Map(), action) {
         lunch: false,
         afternoon: false,
         evening: false,
-        message: 'Client enregistré ! '
+        message: 'Client enregistré !',
+        loading: true,
       }
       return state.merge(expectedState);
     case 'GET_CLIENTS_FAIL':
       break;
+    case 'CLIENT_LIST_LOADING':
+      return state
+        .set('loading', true);
     case 'GET_CLIENTS_SUCCESS':
       return state
-        .set('clients', action.clients);
+        .set('clients', action.clients)
+        .set('loading', false);
     case 'SET_STATE':
       return state.merge(action.state);
     case 'UPDATE_CLIENT_INFO':

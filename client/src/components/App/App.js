@@ -1,4 +1,5 @@
 import React from 'react';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import styled from 'styled-components';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
@@ -17,8 +18,18 @@ class AppContainer extends React.Component {
     return (
       <App>
         <Header />
-        <ClientAdditionContainer />
-        <ClientsDisplayContainer />
+        <Tabs >
+          <TabList>
+            <Tab>Ajouter un client</Tab>
+            <Tab>Voir</Tab>
+          </TabList>
+          <TabPanel>
+            <ClientAdditionContainer />
+          </TabPanel>
+          <TabPanel>
+            <ClientsDisplayContainer />
+          </TabPanel>
+        </Tabs>
         <Footer />
       </App>
     );

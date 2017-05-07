@@ -30,7 +30,7 @@ sagaMiddleWare.run(ClientsDisplaySaga);
 store.dispatch({
   type: 'SET_STATE',
   state: {
-    clients: {},
+    clients: [],
     firstname: '',
     lastname: '',
     number: '',
@@ -39,6 +39,7 @@ store.dispatch({
     afternoon: false,
     evening: false,
     message: '',
+    loading: true,
   }
 });
 
