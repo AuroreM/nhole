@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 import App from './App';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import ClientAdditionContainer from '../../containers/ClientAdditionContainer';
 import ClientsDisplayContainer from '../../containers/ClientsDisplayContainer';
 
@@ -13,6 +14,34 @@ describe('<App />', () => {
       <App />
     );
     expect(renderedComponent.find(Header).length).toEqual(1);
+  });
+
+  it('should render a Tabs component', () => {
+    const renderedComponent = shallow(
+      <App />
+    );
+    expect(renderedComponent.find(Tabs).length).toEqual(1);
+  });
+
+  it('should render a TabList component', () => {
+    const renderedComponent = shallow(
+      <App />
+    );
+    expect(renderedComponent.find(TabList).length).toEqual(1);
+  });
+
+  it('should render two Tab components', () => {
+    const renderedComponent = shallow(
+      <App />
+    );
+    expect(renderedComponent.find(Tab).length).toEqual(2);
+  });
+
+  it('should render two TabPanel components', () => {
+    const renderedComponent = shallow(
+      <App />
+    );
+    expect(renderedComponent.find(Tab).length).toEqual(2);
   });
 
   it('should render a Footer', () => {

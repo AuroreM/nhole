@@ -52,7 +52,7 @@ class ClientsDisplay extends React.Component {
         <Body>
           <Title>Vos clients</Title>
           {
-            this.props.loading ? <p>LOADING</p> : this.renderClientList()
+            this.props.loading ? <p></p> : this.renderClientList()
           }
         </Body>
     );

@@ -3,7 +3,12 @@ import { mount, shallow } from 'enzyme';
 import InfoUpdate from './InfoUpdate';
 
 describe('<InfoUpdate />', () => {
-  const props = { updateClientInfo: (firstname, lastname, number) => {} };
+  const props = {
+    updateClientInfo: (firstname, lastname, number) => {},
+    firstname: '',
+    lastname: '',
+    number: '',
+  };
 
   it('should render three inputs', () => {
     const renderedComponent = mount(
@@ -40,7 +45,12 @@ describe('<InfoUpdate />', () => {
        return {};
      };
      const renderedComponent = mount(
-       <InfoUpdate updateClientInfo={updateClientInfo} />
+       <InfoUpdate
+         updateClientInfo={updateClientInfo}
+         firstname={''}
+         lastname={''}
+         number={''}
+        />
      );
      renderedComponent.find('input').at(0).simulate('change', {target: {value: 'Léon'}});
      expect(updateClientInfoArg).toEqual({

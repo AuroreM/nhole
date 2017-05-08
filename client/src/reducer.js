@@ -4,6 +4,15 @@ export default function(state = Map(), action) {
   switch (action.type) {
     default:
       break;
+    case 'CLIENT_LIST_LOADING':
+      return state
+      .set('loading', true);
+    case 'GET_CLIENTS_FAIL':
+      break;
+    case 'GET_CLIENTS_SUCCESS':
+      return state
+      .set('clients', action.clients)
+      .set('loading', false);
     case 'REGISTER_CLIENT_FAIL':
       return state
         .set('message', 'Un problème est survenu lors de l\'enregistrement');
@@ -21,15 +30,6 @@ export default function(state = Map(), action) {
         loading: true,
       }
       return state.merge(expectedState);
-    case 'GET_CLIENTS_FAIL':
-      break;
-    case 'CLIENT_LIST_LOADING':
-      return state
-        .set('loading', true);
-    case 'GET_CLIENTS_SUCCESS':
-      return state
-        .set('clients', action.clients)
-        .set('loading', false);
     case 'SET_STATE':
       return state.merge(action.state);
     case 'UPDATE_CLIENT_INFO':

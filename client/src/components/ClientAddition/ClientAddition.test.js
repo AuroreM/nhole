@@ -1,8 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import ClientAddition from './ClientAddition';
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
 import InfoUpdateContainer from '../../containers/InfoUpdateContainer';
 import SlotUpdate from '../SlotUpdate/SlotUpdate';
 

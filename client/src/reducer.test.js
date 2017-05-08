@@ -12,6 +12,66 @@ describe('reducer', () => {
     lunch: false,
     afternoon: false,
     evening: false,
+    loading: false,
+  });
+
+  it('handles CLIENT_LIST_LOADING by setting loading to true', () => {
+    const action = {
+      type: 'CLIENT_LIST_LOADING',
+    }
+    const nextState = reducer(initialState, action);
+    expect(nextState.get('loading')).to.equal(!initialState.get('loading'));
+    expect(nextState.get('loading')).to.equal(true);
+  });
+
+  const clients = [
+    'client': {
+      firstname: 'Aurore',
+      lastname: 'Ma',
+      number: '01',
+      morning: false,
+      lunch: true,
+      afternoon: false,
+      evening: true,
+    },
+    'client': {
+      firstname: 'Christine',
+      lastname: 'Ma',
+      number: '02',
+      morning: true,
+      lunch: false,
+      afternoon: false,
+      evening: true,
+    },
+  ];
+
+  it('handles GET_CLIENTS_SUCCESS by setting loading to false', () => {
+    const initialStateWithTrueLoading = fromJS({
+      firstname: '',
+      lastname: '',
+      number: '',
+      morning: false,
+      lunch: false,
+      afternoon: false,
+      evening: false,
+      loading: true,
+    });
+    const action = {
+      type: 'GET_CLIENTS_SUCCESS',
+      clients,
+    }
+    const nextState = reducer(initialStateWithTrueLoading, action);
+    expect(nextState.get('loading')).to.equal(!initialStateWithTrueLoading.get('loading'));
+    expect(nextState.get('loading')).to.equal(false);
+  });
+
+  it('handles GET_CLIENTS_SUCCESS by setting clients', () => {
+    const action = {
+      type: 'GET_CLIENTS_SUCCESS',
+      clients,
+    }
+    const nextState = reducer(initialState, action);
+    expect(nextState.get('clients')).to.equal(clients);
   });
 
   it('handles SET_STATE', () => {
@@ -25,7 +85,7 @@ describe('reducer', () => {
     expect(nextState).to.deep.equal(initialState);
   });
 
-  it('handles UPDATE_CLIENT_INFO by changing the only the firstname', () => {
+  it('handles UPDATE_CLIENT_INFO by changing only the firstname', () => {
     const action = {
       type: 'UPDATE_CLIENT_INFO',
       firstname: 'Aurore',
@@ -38,7 +98,7 @@ describe('reducer', () => {
     expect(nextState.get('number')).to.equal(initialState.get('number'));
   });
 
-  it('handles UPDATE_CLIENT_INFO by changing the only the lastname', () => {
+  it('handles UPDATE_CLIENT_INFO by changing only the lastname', () => {
     const action = {
       type: 'UPDATE_CLIENT_INFO',
       firstname: '',
@@ -51,7 +111,7 @@ describe('reducer', () => {
     expect(nextState.get('number')).to.equal(initialState.get('number'));
   });
 
-  it('handles UPDATE_CLIENT_INFO by changing the only the number', () => {
+  it('handles UPDATE_CLIENT_INFO by changing only the number', () => {
     const action = {
       type: 'UPDATE_CLIENT_INFO',
       firstname: '',
