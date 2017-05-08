@@ -32,6 +32,11 @@ export default function(state = Map(), action) {
       return state.merge(expectedState);
     case 'SET_STATE':
       return state.merge(action.state);
+    case 'SEND_MESSAGE_FAIL':
+      break;
+    case 'SEND_MESSAGE_SUCCESS':
+      return state
+        .set('message', 'Message envoyé !');
     case 'UPDATE_CLIENT_INFO':
       return state
         .set('firstname', action.firstname)
