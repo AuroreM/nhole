@@ -1,6 +1,6 @@
 import { takeLatest, call, put, select } from 'redux-saga/effects';
 import request from '../../utils/request';
-import { registerClientFail, registerClientSuccess } from '../../actions';
+import { registerClientFail, registerClientSuccess } from './actions';
 
 const getFirstname = (state) => state.get('firstname');
 const getLastname = (state) => state.get('lastname');

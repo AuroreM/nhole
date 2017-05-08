@@ -5,6 +5,7 @@ import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import ClientAdditionContainer from '../../containers/ClientAdditionContainer';
 import ClientsDisplayContainer from '../../containers/ClientsDisplayContainer';
+import MessageSendingContainer from '../../containers/MessageSendingContainer';
 
 const App = styled.div`
   display: flex;
@@ -20,13 +21,17 @@ class AppContainer extends React.Component {
         <Tabs>
           <TabList>
             <Tab>Ajouter un client</Tab>
-            <Tab>Voir</Tab>
+            <Tab>Voir mes clients</Tab>
+            <Tab>Envoyer un message</Tab>
           </TabList>
           <TabPanel>
             <ClientAdditionContainer />
           </TabPanel>
           <TabPanel>
             <ClientsDisplayContainer />
+          </TabPanel>
+          <TabPanel>
+            <MessageSendingContainer />
           </TabPanel>
         </Tabs>
         <Footer />

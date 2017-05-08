@@ -1,7 +1,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import ClientAddition from '../components/ClientAddition/ClientAddition';
-import * as ClientAdditionActions from '../actions';
+import * as ClientAdditionActions from '../components/ClientAddition/actions';
 
 const MapDispatchToProps = (dispatch) => {
   return bindActionCreators(ClientAdditionActions , dispatch)
