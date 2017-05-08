@@ -1,19 +1,32 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const List = styled.ul`
+  list-style-type: none;
+`;
+
+const ClientContainer = styled.div`
+  margin: 0 60px;
+`;
+
+const Name = styled.h4`
+  font-weight: bold;
+  display: inline;
+`;
+
 class Client extends React.Component {
   render() {
     return (
-      <div>
-        <ul>
-          <li>Nom : { this.props.client.firstname } { this.props.client.lastname }</li>
+      <ClientContainer>
+        <List>
+          <li><Name>{ this.props.client.firstname } { this.props.client.lastname } </Name></li>
           <li>Numéro de téléphone : { this.props.client.number }</li>
           <li>Créneaux : {this.props.client.morning ? 'Matin, ' : ''}
                           {this.props.client.lunch ? 'Midi, ' : ''}
                           {this.props.client.afternoon ? 'Après-midi, ' : ''}
                           {this.props.client.evening ? 'Soirée, ' : ''} </li>
-        </ul>
-      </div>
+        </List>
+      </ClientContainer>
     );
   }
 };

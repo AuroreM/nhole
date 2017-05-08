@@ -9,7 +9,6 @@ import ClientsDisplayContainer from '../../containers/ClientsDisplayContainer';
 const App = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
   font-family: "Courier New", Courier, monospace;
 `;
 
@@ -18,7 +17,7 @@ class AppContainer extends React.Component {
     return (
       <App>
         <Header />
-        <Tabs >
+        <Tabs>
           <TabList>
             <Tab>Ajouter un client</Tab>
             <Tab>Voir</Tab>
