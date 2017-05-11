@@ -25,8 +25,8 @@ class ClientsDisplay extends React.Component {
   }
 
   renderClientList() {
-    const leftColumn = this.props.clients.splice(0, Math.floor(this.props.clients.length / 2));
-    const rightColumn = this.props.clients.splice(Math.floor(this.props.clients.length / 2));
+    const leftColumn = this.props.clients.splice(0, Math.trunc(this.props.clients.length / 2) + 1);
+    const rightColumn = this.props.clients;
     return (
       <Clients>
         <div>

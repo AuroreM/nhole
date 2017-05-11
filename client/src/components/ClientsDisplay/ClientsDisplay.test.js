@@ -28,6 +28,15 @@ describe('<ClientsDisplay />', () => {
         afternoon: false,
         evening: true,
       },
+      'client': {
+        firstname: 'Elliot',
+        lastname: 'Ma',
+        number: '03',
+        morning: false,
+        lunch: false,
+        afternoon: true,
+        evening: true,
+      },
     ]
   };
 
@@ -35,6 +44,6 @@ describe('<ClientsDisplay />', () => {
     const renderedComponent = shallow(
       <ClientsDisplay {...props} />
     );
-    expect(renderedComponent.find(Client).length).toEqual(2);
+    expect(renderedComponent.find(Client).length).toEqual(3);
   });
 });
