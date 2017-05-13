@@ -15,6 +15,24 @@ describe('reducer', () => {
     loading: false,
   });
 
+  it('handles CLEAR_MESSAGE by emptying message', () => {
+    const initialStateWithMessage = fromJS({
+      firstname: '',
+      lastname: '',
+      number: '',
+      morning: false,
+      lunch: false,
+      afternoon: false,
+      evening: false,
+      message: 'TOTO',
+    });
+    const action = {
+      type: 'CLEAR_MESSAGE',
+    }
+    const nextState = reducer(initialStateWithMessage, action);
+    expect(nextState.get('message')).to.equal('');
+  });
+
   it('handles CLIENT_LIST_LOADING by setting loading to true', () => {
     const action = {
       type: 'CLIENT_LIST_LOADING',

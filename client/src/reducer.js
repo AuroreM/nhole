@@ -4,6 +4,9 @@ export default function(state = Map(), action) {
   switch (action.type) {
     default:
       break;
+    case 'CLEAR_MESSAGE':
+      return state
+      .set('message', '');
     case 'CLIENT_LIST_LOADING':
       return state
       .set('loading', true);

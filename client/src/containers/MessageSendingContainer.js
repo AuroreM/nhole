@@ -3,8 +3,12 @@ import { connect } from 'react-redux';
 import MessageSending from '../components/MessageSending/MessageSending';
 import * as MessageSendingActions from '../components/MessageSending/actions';
 
+const mapStateToProps = (state) => ({
+  message: state.get('message'),
+});
+
 const MapDispatchToProps = (dispatch) => {
   return bindActionCreators(MessageSendingActions , dispatch)
 }
 
-export default connect(null, MapDispatchToProps)(MessageSending)
+export default connect(mapStateToProps, MapDispatchToProps)(MessageSending)

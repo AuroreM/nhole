@@ -11,7 +11,6 @@ export function sendMessageFail() {
   }
 }
 export function sendMessageSuccess() {
-  console.log('in sendMessageSuccess action')
   return {
     type: 'SEND_MESSAGE_SUCCESS',
   }

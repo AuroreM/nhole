@@ -1,9 +1,10 @@
+import { delay } from 'redux-saga';
 import { takeLatest, call, put } from 'redux-saga/effects';
 import request from '../../utils/request';
 import { sendMessageFail, sendMessageSuccess } from './actions';
+import { clearMessage } from '../../actions';
 
 export function* sendMessageToAPI({ message, slot }) {
-  // Send message only to morning client
   const requestURL = `http://vps395184.ovh.net:43301/api/Clients/${slot}`;
   const body = JSON.stringify({message: message})
   try {
@@ -18,8 +19,9 @@ export function* sendMessageToAPI({ message, slot }) {
         }
       }
     );
-    console.log(response);
     yield put(sendMessageSuccess());
+    yield delay(2000);
+    yield put(clearMessage());
   } catch (err) {
     yield put(sendMessageFail());
   }

@@ -1,6 +1,8 @@
+import { delay } from 'redux-saga'
 import { takeLatest, call, put, select } from 'redux-saga/effects';
 import request from '../../utils/request';
 import { registerClientFail, registerClientSuccess } from './actions';
+import { clearMessage } from '../../actions';
 
 const getFirstname = (state) => state.get('firstname');
 const getLastname = (state) => state.get('lastname');
@@ -21,7 +23,6 @@ export function* sendClientToAPI() {
     afternoon: yield select(getAfternoon),
     evening: yield select(getEvening),
   });
-  console.log(body)
   try {
     const response = yield call(
       request,
@@ -36,6 +37,8 @@ export function* sendClientToAPI() {
     );
     console.log(response);
     yield put(registerClientSuccess());
+    yield delay(2000);
+    yield put(clearMessage());
   } catch (err) {
     yield put(registerClientFail());
   }
