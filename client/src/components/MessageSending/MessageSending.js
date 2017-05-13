@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import Button from '../Button/Button'
+import MessageArea from '../MessageArea/MessageArea'
+import Toastr from '../Toastr/Toastr'
 
 const MessageTyping = styled.div`
   display: flex;
@@ -11,33 +14,6 @@ const Title = styled.h1`
   color: rgb(64,64,64);
   font-size: 20px;
   margin: 20px;
-`;
-
-const TextArea = styled.textarea`
-font-size: 19px;
-color: rgb(64,64,64);
-font-family: "Courier New", Courier, monospace;
-`;
-
-const Button = styled.button`
-  background-color: rgb(64,64,64);
-  border: 1px solid rgb(64,64,64);
-  display: inline-block;
-  cursor: pointer;
-  color: rgb(30,144,255);
-  font-family: "Courier New", Courier, monospace;
-  font-size: 20px;
-  padding:16px 40px;
-  margin-top: 20px;
-  &:hover {
-    background-color: rgb(70,70,70);
-  }
-`;
-
-const Message = styled.div`
-  margin-top: 50px;
-  color: rgb(220,20,60);
-  font-weight: bold;
 `;
 
 class MessageSending extends React.Component {
@@ -61,21 +37,21 @@ class MessageSending extends React.Component {
     return (
       <MessageTyping>
         <Title>Envoyer un message au client du créneau du MATIN :</Title>
-        <TextArea id="message" autoComplete="off" cols="50" rows="10" />
+        <MessageArea id="message" autoComplete="off" cols="40" rows="6" />
         <Button onClick={this.sendMessageToMorningClient.bind(this)}>Envoyer</Button>
-        <Message>{this.props.message}</Message>
+        <Toastr>{this.props.message}</Toastr>
         <Title>Envoyer un message au client du créneau du MIDI :</Title>
-        <TextArea id="message" autoComplete="off" cols="50" rows="10" />
+        <MessageArea id="message" autoComplete="off" cols="40" rows="6" />
         <Button onClick={this.sendMessageToLunchClient.bind(this)}>Envoyer</Button>
-        <Message>{this.props.message}</Message>
+        <Toastr>{this.props.message}</Toastr>
         <Title>Envoyer un message au client du créneau de l'APRES MIDI :</Title>
-        <TextArea id="message" autoComplete="off" cols="50" rows="10" />
+        <MessageArea id="message" autoComplete="off" cols="40" rows="6" />
         <Button onClick={this.sendMessageToAfternoonClient.bind(this)}>Envoyer</Button>
-        <Message>{this.props.message}</Message>
+        <Toastr>{this.props.message}</Toastr>
         <Title>Envoyer un message au client du créneau du SOIR :</Title>
-        <TextArea id="message" autoComplete="off" cols="50" rows="10" />
+        <MessageArea id="message" autoComplete="off" cols="40" rows="6" />
         <Button onClick={this.sendMessageToEveningClient.bind(this)}>Envoyer</Button>
-        <Message>{this.props.message}</Message>
+        <Toastr>{this.props.message}</Toastr>
       </MessageTyping>
     );
   }
