@@ -3,14 +3,14 @@ import styled from 'styled-components';
 
 const Info = styled.div`
   justify-content: center;
-  margin: 20px;
+  margin: 1.5vh;
   display: flex;
-  width: 60vw;
+  width: 90vw;
 `;
 
 const Label = styled.label`
-  font-size: 22px;
-  width: 30vw;
+  font-size: 2.5vh;
+  width: 35vw;
   display: flex;
   align-items: center;
 `;
@@ -19,10 +19,10 @@ const Input = styled.input`
   padding: 5px;
   height: 25px;
   flex: 1;
-  font-size: 20px;
+  font-size: 2.5vh;
   text-align: center;
   color: rgb(64,64,64);
-  autoFocus: none;
+  font-family: "Courier New", Courier, monospace;
 `;
 
 class InfoUpdate extends React.Component {

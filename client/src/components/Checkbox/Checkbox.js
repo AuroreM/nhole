@@ -2,14 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Label = styled.label`
-  font-size: 22px;
+  font-size: 2.5vh;
   display: flex;
   align-items: center;
-  height: 35px;
+  height: 5vh;
 `;
 
 const Input = styled.input`
-  margin-right: 35px;
+  margin-right: 3.5vh;
 `;
 
 class Checkbox extends React.Component {

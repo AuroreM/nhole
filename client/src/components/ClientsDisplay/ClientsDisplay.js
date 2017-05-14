@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Client from '../Client/Client'
+import Client from '../Client/Client';
+import Title from '../Title/Title';
 
 const Body = styled.div`
   display: flex;
@@ -8,15 +9,9 @@ const Body = styled.div`
   align-items: center;
 `;
 
-const Title = styled.h1`
-  color: rgb(64,64,64);
-  font-size: 25px;
-  text-transform: uppercase;
-  margin: 20px;
-`;
-
 const Clients = styled.div`
   display: flex;
+  flex-direction: column;
 `;
 
 class ClientsDisplay extends React.Component {
@@ -25,24 +20,14 @@ class ClientsDisplay extends React.Component {
   }
 
   renderClientList() {
-    const leftColumn = this.props.clients.splice(0, Math.trunc(this.props.clients.length / 2) + 1);
-    const rightColumn = this.props.clients;
+    console.log(this.props)
     return (
       <Clients>
-        <div>
           {
-            leftColumn.map(function(client) {
+            this.props.clients.map(function(client) {
               return <Client client={client} />
             })
           }
-        </div>
-        <div>
-          {
-            rightColumn.map(function(client) {
-              return <Client client={client} />
-            })
-          }
-        </div>
       </Clients>
     );
   }
@@ -50,7 +35,7 @@ class ClientsDisplay extends React.Component {
   render() {
     return (
         <Body>
-          <Title>Vos clients</Title>
+          <Title>Mes clients</Title>
           {
             this.props.loading ? <p></p> : this.renderClientList()
           }

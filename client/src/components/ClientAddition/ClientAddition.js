@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import InfoUpdateContainer from '../../containers/InfoUpdateContainer';
 import SlotUpdate from '../../components/SlotUpdate/SlotUpdate';
 import Button from '../Button/Button'
+import Title from '../Title/Title'
 import Toastr from '../Toastr/Toastr'
 
 const Body = styled.div`
@@ -10,13 +11,6 @@ const Body = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
-
-const Title = styled.h1`
-  color: rgb(64,64,64);
-  font-size: 25px;
-  text-transform: uppercase;
-  margin: 20px;
 `;
 
 class ClientAddition extends React.Component {
