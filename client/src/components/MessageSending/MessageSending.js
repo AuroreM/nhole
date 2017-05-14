@@ -13,38 +13,38 @@ const MessageTyping = styled.div`
 
 class MessageSending extends React.Component {
   sendMessageToMorningClient() {
-    this.props.sendMessage(document.getElementById('message').value, 'morning')
+    this.props.sendMessage(document.getElementById('morning').value, 'morning')
   }
 
   sendMessageToLunchClient() {
-    this.props.sendMessage(document.getElementById('message').value, 'lunch')
+    this.props.sendMessage(document.getElementById('lunch').value, 'lunch')
   }
 
   sendMessageToAfternoonClient() {
-    this.props.sendMessage(document.getElementById('message').value, 'afternoon')
+    this.props.sendMessage(document.getElementById('afternoon').value, 'afternoon')
   }
 
   sendMessageToEveningClient() {
-    this.props.sendMessage(document.getElementById('message').value, 'evening')
+    this.props.sendMessage(document.getElementById('evening').value, 'evening')
   }
 
   render() {
     return (
       <MessageTyping>
         <Title>Message pour les clients du MATIN :</Title>
-        <MessageArea id="message" autoComplete="off" cols="40" rows="6" />
+        <MessageArea id="morning" autoComplete="off" cols="40" rows="6" />
         <Button onClick={this.sendMessageToMorningClient.bind(this)}>Envoyer</Button>
         <Toastr>{this.props.message}</Toastr>
         <Title>Message pour les clients du MIDI :</Title>
-        <MessageArea id="message" autoComplete="off" cols="40" rows="6" />
+        <MessageArea id="lunch" autoComplete="off" cols="40" rows="6" />
         <Button onClick={this.sendMessageToLunchClient.bind(this)}>Envoyer</Button>
         <Toastr>{this.props.message}</Toastr>
         <Title>Message pour les clients de l'APRES MIDI :</Title>
-        <MessageArea id="message" autoComplete="off" cols="40" rows="6" />
+        <MessageArea id="afternoon" autoComplete="off" cols="40" rows="6" />
         <Button onClick={this.sendMessageToAfternoonClient.bind(this)}>Envoyer</Button>
         <Toastr>{this.props.message}</Toastr>
         <Title>Message pour les clients du SOIR :</Title>
-        <MessageArea id="message" autoComplete="off" cols="40" rows="6" />
+        <MessageArea id="evening" autoComplete="off" cols="40" rows="6" />
         <Button onClick={this.sendMessageToEveningClient.bind(this)}>Envoyer</Button>
         <Toastr>{this.props.message}</Toastr>
       </MessageTyping>
