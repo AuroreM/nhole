@@ -5,7 +5,7 @@ import { sendMessageFail, sendMessageSuccess } from './actions';
 import { clearMessage } from '../../actions';
 
 export function* sendMessageToAPI({ message, slot }) {
-  const requestURL = `http://vps395184.ovh.net:43301/api/Clients/${slot}`;
+  const requestURL = `http://nhole.ovh/api/Clients/${slot}`;
   const body = JSON.stringify({message: message})
   try {
     const response = yield call(

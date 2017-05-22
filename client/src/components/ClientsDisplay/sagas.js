@@ -3,7 +3,7 @@ import request from '../../utils/request';
 import { clientListLoading, getClientsFail, getClientsSuccess } from './actions';
 
 export function* getClients() {
-  const requestURL = `http://vps395184.ovh.net:43301/api/Clients`;
+  const requestURL = `http://nhole.ovh/api/Clients`;
   yield put(clientListLoading());
   try {
     const clients = yield call(request, requestURL, { method: 'GET'});

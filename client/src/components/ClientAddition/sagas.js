@@ -13,7 +13,7 @@ const getLunch = (state) => state.get('lunch');
 const getEvening = (state) => state.get('evening');
 
 export function* sendClientToAPI() {
-  const requestURL = `http://vps395184.ovh.net:43301/api/Clients`;
+  const requestURL = `http://nhole.ovh/api/Clients`;
   const body = JSON.stringify({
     firstname: yield select(getFirstname),
     lastname: yield select(getLastname),
