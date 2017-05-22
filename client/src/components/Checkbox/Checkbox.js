@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Label = styled.label`
-  font-size: 2.5vh;
+  font-size: 18px;
   display: flex;
   align-items: center;
-  height: 5vh;
+  height: 35px;
 `;
 
 const Input = styled.input`

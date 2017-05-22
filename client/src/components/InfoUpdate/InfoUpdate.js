@@ -3,14 +3,14 @@ import styled from 'styled-components';
 
 const Info = styled.div`
   justify-content: center;
-  margin: 1.5vh;
+  margin: 20px;
   display: flex;
   width: 90vw;
 `;
 
 const Label = styled.label`
-  font-size: 2.5vh;
-  width: 35vw;
+  font-size: 16px;
+  width: 30vw;
   display: flex;
   align-items: center;
 `;
@@ -19,7 +19,7 @@ const Input = styled.input`
   padding: 5px;
   height: 25px;
   flex: 1;
-  font-size: 2.5vh;
+  font-size: 16px;
   text-align: center;
   color: rgb(64,64,64);
   font-family: "Courier New", Courier, monospace;
