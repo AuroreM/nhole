@@ -20,6 +20,9 @@ class Client extends React.Component {
       <ClientContainer>
         <List>
           <li><Name>{ this.props.client.firstname } { this.props.client.lastname } </Name></li>
+          <li>
+            <button type="submit" onClick={() => { this.props.deleteClient(this.props.client.id)}}>Supprimer</button>
+          </li>
           <li>N° de téléphone : { this.props.client.number }</li>
           <li>Créneaux : {this.props.client.morning ? 'Matin, ' : ''}
                           {this.props.client.lunch ? 'Midi, ' : ''}
