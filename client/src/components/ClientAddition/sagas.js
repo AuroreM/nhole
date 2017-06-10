@@ -22,6 +22,7 @@ export function* sendClientToAPI() {
     lunch: yield select(getLunch),
     afternoon: yield select(getAfternoon),
     evening: yield select(getEvening),
+    id: new Date().getTime(),
   });
   try {
     const response = yield call(

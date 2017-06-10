@@ -2,10 +2,15 @@
   "name": "Client",
   "base": "PersistedModel",
   "idInjection": true,
+  "forceId": false,
   "options": {
     "validateUpsert": true
   },
   "properties": {
+    "id": {
+      "type": "bigint",
+      "required": true
+    },
     "firstname": {
       "type": "string"
     },
