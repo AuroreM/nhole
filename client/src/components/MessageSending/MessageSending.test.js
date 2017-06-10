@@ -8,13 +8,6 @@ describe('<MessageSending />', () => {
   const props = {
   };
 
-  it('should contains envoyer un message', () => {
-    const renderedComponent = mount(
-      <MessageSending {...props} />
-    );
-    expect(renderedComponent.text()).toContain('Envoyer un message');
-  });
-
   it('should contains 4 text inputs', () => {
     const renderedComponent = shallow(
       <MessageSending {...props} />
@@ -27,6 +20,13 @@ describe('<MessageSending />', () => {
       <MessageSending {...props} />
     );
     expect(renderedComponent.find(Button).length).toEqual(4);
+  });
+
+  it('should contains Envoyer', () => {
+    const renderedComponent = mount(
+      <MessageSending {...props} />
+    );
+    expect(renderedComponent.text()).toContain('Envoyer');
   });
 
   it('should render a message if any', () => {
