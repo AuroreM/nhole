@@ -4,7 +4,7 @@ import Checkbox from './Checkbox';
 
 describe('<Checkbox />', () => {
   const props = {
-    updateSloteChoice: () => {},
+    updateSlotChoice: () => {},
     slot: 'morning',
     label: 'Cours du matin'
   };
@@ -25,14 +25,12 @@ describe('<Checkbox />', () => {
 
   // it('should dispatch UPDATE_CLIENT_INFO when typing firstname', () => {
   //   let updateSlotArg = null;
-  //   const updateSloteChoice = (arg) => {
-  //     console.log('toto')
-  //     console.log(arg)
+  //   const updateSlotChoice = (arg) => {
   //     updateSlotArg = arg;
   //     return {};
   //   };
   //   const renderedComponent = mount(
-  //     <Checkbox updateSloteChoice={updateSloteChoice} slot={'morning'} label={'Cours du matin'} />
+  //     <Checkbox updateSlotChoice={updateSlotChoice} slot={'morning'} label={'Cours du matin'} />
   //   );
   //   renderedComponent.find('input').at(0).simulate('click');
   //   expect(updateSlotArg).toEqual({

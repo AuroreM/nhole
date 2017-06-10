@@ -14,7 +14,7 @@ const Input = styled.input`
 
 class Checkbox extends React.Component {
   handleCheckboxChange(changeEvent) {
-    this.props.updateSloteChoice(this.props.slot)
+    this.props.updateSlotChoice(this.props.slot)
   }
 
   render() {
