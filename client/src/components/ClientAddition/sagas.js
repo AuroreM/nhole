@@ -25,7 +25,7 @@ export function* sendClientToAPI() {
     id: new Date().getTime(),
   });
   try {
-    const response = yield call(
+    yield call(
       request,
       requestURL,
       {
@@ -36,7 +36,6 @@ export function* sendClientToAPI() {
         }
       }
     );
-    console.log(response);
     yield put(registerClientSuccess());
     yield delay(2000);
     yield put(clearMessage());

@@ -1,27 +1,25 @@
 import { delay } from 'redux-saga'
-import { takeLatest, call, put, select } from 'redux-saga/effects';
+import { takeLatest, call, put } from 'redux-saga/effects';
 import request from '../../utils/request';
+import { clearMessage } from '../../actions';
+import { deleteClientSuccess, deleteClientFail } from './actions';
+import { getClients } from '../ClientsDisplay/actions';
 
 export function* deleteClient(action) {
-  const requestURL = `http://localhost:43301/api/Clients/${action.clientId}`;
-  try {
-    const response = yield call(
-      request,
-      requestURL,
-      {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json'
-        }
+  const requestURL = `http://nhole.ovh/api/Clients/${action.clientId}`;
+  const response = yield call(
+    request,
+    requestURL,
+    {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
       }
-    );
-    console.log(response);
-    // yield put(registerClientSuccess());
-    // yield delay(2000);
-    // yield put(clearMessage());
-  } catch (err) {
-    // yield put(registerClientFail());
-  }
+    }
+  );
+  yield put(getClients())
+  yield delay(2000);
+  yield put(clearMessage());
 }
 
 export function* ClientSaga() {

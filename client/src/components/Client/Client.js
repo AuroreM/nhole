@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import FaClose from 'react-icons/lib/fa/close';
 
 const List = styled.ul`
   list-style-type: none;
@@ -12,16 +13,23 @@ const ClientContainer = styled.div`
 const Name = styled.h4`
   font-weight: bold;
   display: inline;
+  flex:
 `;
+
+const iconStyle = {
+  color: 'rgb(220,20,60)',
+  position: 'absolute',
+  right: 0,
+};
 
 class Client extends React.Component {
   render() {
     return (
       <ClientContainer>
         <List>
-          <li><Name>{ this.props.client.firstname } { this.props.client.lastname } </Name></li>
-          <li>
-            <button type="submit" onClick={() => { this.props.deleteClient(this.props.client.id)}}>Supprimer</button>
+          <li style={{ position: 'relative' }}>
+            <Name>{ this.props.client.firstname } { this.props.client.lastname } </Name>
+            <FaClose style={iconStyle} onClick={() => { this.props.deleteClient(this.props.client.id)}} />
           </li>
           <li>N° de téléphone : { this.props.client.number }</li>
           <li>Créneaux : {this.props.client.morning ? 'Matin, ' : ''}

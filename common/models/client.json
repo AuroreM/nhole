@@ -8,7 +8,7 @@
   },
   "properties": {
     "id": {
-      "type": "bigint",
+      "type": "bigserial",
       "required": true
     },
     "firstname": {
