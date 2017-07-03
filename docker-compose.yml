@@ -1,0 +1,10 @@
+version: '2'
+services:
+  database:
+    image: postgres:9.6.2-alpine
+    environment:
+      POSTGRES_USER: aurorem
+      POSTGRES_DB: nholedb
+      POSTGRES_PASSWORD: pswd
+    ports:
+      - "5432:5432"
