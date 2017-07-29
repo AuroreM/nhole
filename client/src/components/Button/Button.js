@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+// TODO : overrider le RaisedButton de material-ui
 const Button = styled.button`
   background-color: rgb(64,64,64);
   border: 1px solid rgb(64,64,64);

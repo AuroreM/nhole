@@ -1,6 +1,7 @@
 import React from 'react';
 import CheckboxContainer from '../../containers/CheckboxContainer';
 
+// @TODO : Add  Chip from material ui
 class SlotUpdate extends React.Component {
   render() {
     return (

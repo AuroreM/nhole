@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const HeaderContainer = styled.div`
-  height: 20vh;
+  height: 10vh;
   width: 100vw;
   background-color: rgb(64,64,64);
   display: flex;
