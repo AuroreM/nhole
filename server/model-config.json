@@ -39,7 +39,7 @@
     "dataSource": null
   },
   "Client": {
-    "dataSource": "nholeDb",
+    "dataSource": "nholedb",
     "public": true
   }
 }

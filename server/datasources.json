@@ -3,11 +3,11 @@
     "name": "db",
     "connector": "memory"
   },
-  "nholeDb": {
+  "nholedb": {
     "host": "127.0.0.1",
     "port": 5432,
-    "database": "nholeDb",
-    "name": "nholeDb",
+    "database": "nholedb",
+    "name": "nholedb",
     "user": "aurorem",
     "password": "pswd",
     "connector": "postgresql"
