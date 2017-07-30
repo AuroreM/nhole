@@ -22,11 +22,4 @@ describe('<MessageSending />', () => {
     );
     expect(renderedComponent.find(RaisedButton).length).toEqual(4);
   });
-
-  it('should contains Envoyer', () => {
-    const renderedComponent = mount(
-      <MessageSending {...props} />
-    );
-    expect(renderedComponent.text()).toContain('Envoyer');
-  });
 });

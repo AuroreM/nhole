@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import ClientsDisplay from './ClientsDisplay';
-import Client from '../Client/Client';
+import ClientContainer from '../../containers/ClientContainer';
 
 describe('<ClientsDisplay />', () => {
   const props = {
@@ -40,10 +40,8 @@ describe('<ClientsDisplay />', () => {
     ]
   };
 
-  it('should render an InfoUpdateContainer', () => {
-    const renderedComponent = shallow(
-      <ClientsDisplay {...props} />
-    );
-    expect(renderedComponent.find(Client).length).toEqual(3);
+  it('should render 3 Client Components', () => {
+    const renderedComponent = shallow(<ClientsDisplay {...props} />);
+    expect(renderedComponent.find(ClientContainer).length).toEqual(3);
   });
 });

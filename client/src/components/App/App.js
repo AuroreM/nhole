@@ -14,8 +14,8 @@ const App = styled.div`
 `;
 
 class AppContainer extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {selectedIndex: 0};
   }
 

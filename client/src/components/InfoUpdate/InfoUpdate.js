@@ -9,7 +9,7 @@ const Info = styled.div`
 `;
 
 class InfoUpdate extends React.Component {
-  onTypeChange(e) {
+  onTypeChange = (e) => {
     this.props.updateClientInfo(
       document.getElementById('firstname').value,
       document.getElementById('lastname').value,
@@ -33,7 +33,7 @@ class InfoUpdate extends React.Component {
             ref="firstname"
             autoComplete="off"
             value={this.props.firstname}
-            onChange={this.onTypeChange.bind(this)}/>
+            onChange={this.onTypeChange}/>
         </Info>
         <Info>
           <TextField
@@ -42,7 +42,7 @@ class InfoUpdate extends React.Component {
             hintText="Nom"
             autoComplete="off"
             value={this.props.lastname}
-            onChange={this.onTypeChange.bind(this)}/>
+            onChange={this.onTypeChange}/>
         </Info>
         <Info>
           <TextField
@@ -51,7 +51,7 @@ class InfoUpdate extends React.Component {
             hintText="Numéro de téléphone"
             autoComplete="off"
             value={this.props.number}
-            onChange={this.onTypeChange.bind(this)}/>
+            onChange={this.onTypeChange}/>
         </Info>
       </div>
     );
