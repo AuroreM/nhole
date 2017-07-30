@@ -4,10 +4,11 @@ import FaClose from 'react-icons/lib/fa/close';
 
 const List = styled.ul`
   list-style-type: none;
+  padding-left: 0;
 `;
 
 const ClientContainer = styled.div`
-  margin: 1vh;
+  margin: 3vh;
 `;
 
 const Name = styled.h4`
