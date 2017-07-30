@@ -11,6 +11,7 @@ const Body = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y:scroll;
 `;
 
 class ClientAddition extends React.Component {
@@ -21,8 +22,8 @@ class ClientAddition extends React.Component {
         <InfoUpdateContainer />
         <Title>Choisissez ses créneaux</Title>
         <SlotUpdate />
-        <RaisedButton onClick={this.props.registerClient} style={{margin: '10px'}} label="Enregistrer" backgroundColor="rgb(64,64,64)" labelColor="rgb(30,144,255)"/>
         <Toastr>{this.props.message}</Toastr>
+        <RaisedButton onClick={this.props.registerClient} style={{margin: '10px'}} label="Enregistrer" backgroundColor="rgb(64,64,64)" labelColor="rgb(30,144,255)"/>
       </Body>
     );
   }

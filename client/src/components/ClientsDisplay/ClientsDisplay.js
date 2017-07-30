@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import ClientContainer from '../../containers/ClientContainer';
 import Title from '../Title/Title';
-import Toastr from '../Toastr/Toastr';
 
 const Body = styled.div`
   display: flex;

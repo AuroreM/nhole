@@ -18,12 +18,17 @@ class InfoUpdate extends React.Component {
   }
 
   render() {
+    const styles = {
+      underlineFocusStyle: {
+        borderColor: 'rgb(30,144,255)'
+      }
+    }
     return (
       <div>
         <Info>
-          <TextField 
+          <TextField
+            underlineFocusStyle={styles.underlineFocusStyle}
             hintText="Prénom"
-            floatingLabelText="Prénom"
             id="firstname"
             ref="firstname"
             autoComplete="off"
@@ -31,20 +36,22 @@ class InfoUpdate extends React.Component {
             onChange={this.onTypeChange.bind(this)}/>
         </Info>
         <Info>
-          <TextField id="lastname"
+          <TextField
+            underlineFocusStyle={styles.underlineFocusStyle}
+            id="lastname"
             hintText="Nom"
-            floatingLabelText="Nom"
-             autoComplete="off"
-             value={this.props.lastname}
-             onChange={this.onTypeChange.bind(this)}/>
+            autoComplete="off"
+            value={this.props.lastname}
+            onChange={this.onTypeChange.bind(this)}/>
         </Info>
         <Info>
-          <TextField id="number"
-             hintText="Numéro de téléphone"
-             floatingLabelText="Numéro de téléphone"
-             autoComplete="off"
-             value={this.props.number}
-             onChange={this.onTypeChange.bind(this)}/>
+          <TextField
+            underlineFocusStyle={styles.underlineFocusStyle}
+            id="number"
+            hintText="Numéro de téléphone"
+            autoComplete="off"
+            value={this.props.number}
+            onChange={this.onTypeChange.bind(this)}/>
         </Info>
       </div>
     );
