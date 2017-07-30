@@ -29,11 +29,4 @@ describe('<MessageSending />', () => {
     );
     expect(renderedComponent.text()).toContain('Envoyer');
   });
-
-  it('should render a message if any', () => {
-    const renderedComponent = mount(
-      <MessageSending {...props} message={'Message envoyé'} />
-    );
-    expect(renderedComponent.text()).toContain('Message envoyé');
-  });
 });
