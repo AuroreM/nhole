@@ -10,6 +10,7 @@ import { ClientSaga } from './components/Client/sagas'
 import { MessageSendingSaga } from './components/MessageSending/sagas'
 import AppContainer from './components/App/App';
 import reducer from './reducer';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 const sagaMiddleWare = createSagaMiddleware()
 const enhancers = []
@@ -49,8 +50,10 @@ store.dispatch({
 
 
 ReactDOM.render(
-  <Provider store={store}>
-    <AppContainer />
-  </Provider>,
+  <MuiThemeProvider>
+    <Provider store={store}>
+      <AppContainer />
+    </Provider>
+  </MuiThemeProvider>,
   document.getElementById('app')
 );

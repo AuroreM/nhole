@@ -1,11 +1,11 @@
 import React from 'react';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import styled from 'styled-components';
-import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import ClientAdditionContainer from '../../containers/ClientAdditionContainer';
 import ClientsDisplayContainer from '../../containers/ClientsDisplayContainer';
 import MessageSendingContainer from '../../containers/MessageSendingContainer';
+import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation';
+import FontIcon from 'material-ui/FontIcon';
 
 const App = styled.div`
   display: flex;
@@ -14,27 +14,50 @@ const App = styled.div`
 `;
 
 class AppContainer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {selectedIndex: 0};
+  }
+
+  renderTab() {
+    const mapStateToComponent = {
+      0: <ClientAdditionContainer />,
+      1: <ClientsDisplayContainer />,
+      2: <MessageSendingContainer />
+    }
+
+    return mapStateToComponent[this.state.selectedIndex];
+  }
+
+  renderClientAddition = () => this.setState({selectedIndex: 0});
+  renderClientsDisplay = () => this.setState({selectedIndex: 1});
+  renderMessageSending = () => this.setState({selectedIndex: 2});
+
   render() {
+    const addClient = <FontIcon className="material-icons" style={{fontSize:'36px'}} hoverColor='rgb(30,144,255)' color='rgb(64,64,64)'>add_circle</FontIcon>;
+    const seeList = <FontIcon className="material-icons" style={{fontSize:'36px'}} hoverColor='rgb(30,144,255)' color='rgb(64,64,64)'>list</FontIcon>;
+    const sendMessage = <FontIcon className="material-icons" style={{fontSize:'34px'}} hoverColor='rgb(30,144,255)' color='rgb(64,64,64)'>message</FontIcon>;
     return (
       <App>
         <Header />
-        <Tabs>
-          <TabList>
-            <Tab>Ajouter un client</Tab>
-            <Tab>Voir mes clients</Tab>
-            <Tab>Envoyer un message</Tab>
-          </TabList>
-          <TabPanel>
-            <ClientAdditionContainer />
-          </TabPanel>
-          <TabPanel>
-            <ClientsDisplayContainer />
-          </TabPanel>
-          <TabPanel>
-            <MessageSendingContainer />
-          </TabPanel>
-        </Tabs>
-        <Footer />
+        {this.renderTab()}
+        <BottomNavigation 
+          selectedIndex={this.state.selectedIndex}
+          style={{position: 'fixed', left:'0px', bottom:'0px',}}
+        >
+          <BottomNavigationItem
+            icon={addClient}
+            onClick={this.renderClientAddition}
+          />
+          <BottomNavigationItem
+            icon={seeList}
+            onClick={this.renderClientsDisplay}
+          />
+          <BottomNavigationItem
+            icon={sendMessage}
+            onClick={this.renderMessageSending}
+          />
+        </BottomNavigation>
       </App>
     );
   }

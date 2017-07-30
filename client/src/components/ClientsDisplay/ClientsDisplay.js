@@ -6,8 +6,10 @@ import Toastr from '../Toastr/Toastr';
 
 const Body = styled.div`
   display: flex;
+  height: 80vh;
   flex-direction: column;
   align-items: center;
+  overflow-y: scroll;
 `;
 
 const Clients = styled.div`
