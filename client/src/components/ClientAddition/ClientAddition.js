@@ -17,7 +17,7 @@ const Body = styled.div`
 class ClientAddition extends React.Component {
   render() {
     return (
-      <Body>
+      <Body style={{height: '70vh'}}>
         <Title>Renseignez ses informations</Title>
         <InfoUpdateContainer />
         <Title>Choisissez ses créneaux</Title>

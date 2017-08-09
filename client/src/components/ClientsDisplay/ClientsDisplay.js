@@ -35,7 +35,7 @@ class ClientsDisplay extends React.Component {
 
   render() {
     return (
-        <Body>
+        <Body style={{height: '70vh'}}>
           <Title>Mes clients</Title>
           {
             this.props.loading ? <p></p> : this.renderClientList()

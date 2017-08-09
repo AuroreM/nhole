@@ -40,14 +40,13 @@ class MessageSending extends React.Component {
       },
     }
     return (
-      <MessageTyping>
+      <MessageTyping style={{height: '70vh'}}>
         <Title>Envoyez un message</Title>
         <Toastr>{this.props.message}</Toastr>
         <TextField
           underlineFocusStyle={styles.underlineFocusStyle}
           id="morning"
-          hintText="Message"
-          floatingLabelText="Message pour les clients du matin"
+          hintText="Message pour les clients du matin"
           floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
           multiLine={true}
           rows={2}
@@ -56,8 +55,7 @@ class MessageSending extends React.Component {
         <TextField
           underlineFocusStyle={styles.underlineFocusStyle}
           id="lunch"
-          hintText="Message"
-          floatingLabelText="Message pour les clients du midi"
+          hintText="Message pour les clients du midi"
           floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
           multiLine={true}
           rows={2}
@@ -66,8 +64,7 @@ class MessageSending extends React.Component {
         <TextField
           underlineFocusStyle={styles.underlineFocusStyle}
           id="afternoon"
-          hintText="Message"
-          floatingLabelText="Message pour les clients de l'après-midi"
+          hintText="Message pour les clients de l'après-midi"
           floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
           multiLine={true}
           rows={2}
@@ -76,8 +73,7 @@ class MessageSending extends React.Component {
         <TextField
           underlineFocusStyle={styles.underlineFocusStyle}
           id="evening"
-          hintText="Message"
-          floatingLabelText="Message pour les clients du soir"
+          hintText="Message pour les clients du soir"
           floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
           multiLine={true}
           rows={2}
