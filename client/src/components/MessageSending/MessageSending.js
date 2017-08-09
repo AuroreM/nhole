@@ -18,7 +18,7 @@ const MessageTyping = styled.div`
 const ChipContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 65vw;
+  width: 80vw;
   margin: 25px;
 `;
 
