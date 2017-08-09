@@ -3,9 +3,10 @@ import { takeLatest, call, put } from 'redux-saga/effects';
 import request from '../../utils/request';
 import { sendMessageFail, sendMessageSuccess } from './actions';
 import { clearMessage } from '../../actions';
+import { baseUrl } from '../../config';
 
 export function* sendMessageToAPI({ message, slot }) {
-  const requestURL = `http://nhole.ovh/api/Clients/${slot}`;
+  const requestURL = `${baseUrl()}/api/Clients/${slot}`;
   const body = JSON.stringify({message: message})
   try {
     const response = yield call(

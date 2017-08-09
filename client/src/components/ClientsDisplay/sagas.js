@@ -1,9 +1,10 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
 import request from '../../utils/request';
 import { clientListLoading, getClientsFail, getClientsSuccess } from './actions';
+import { baseUrl } from '../../config';
 
 export function* getClients() {
-  const requestURL = `http://nhole.ovh/api/Clients`;
+  const requestURL = `${baseUrl()}/api/Clients`;
   yield put(clientListLoading());
   try {
     const clients = yield call(request, requestURL, { method: 'GET'});

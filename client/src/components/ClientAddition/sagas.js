@@ -3,6 +3,7 @@ import { takeLatest, call, put, select } from 'redux-saga/effects';
 import request from '../../utils/request';
 import { registerClientFail, registerClientSuccess } from './actions';
 import { clearMessage } from '../../actions';
+import { baseUrl } from '../../config';
 
 const getFirstname = (state) => state.get('firstname');
 const getLastname = (state) => state.get('lastname');
@@ -13,7 +14,7 @@ const getLunch = (state) => state.get('lunch');
 const getEvening = (state) => state.get('evening');
 
 export function* sendClientToAPI() {
-  const requestURL = `http://nhole.ovh/api/Clients`;
+  const requestURL = `${baseUrl()}/api/Clients`;
   const body = JSON.stringify({
     firstname: yield select(getFirstname),
     lastname: yield select(getLastname),
