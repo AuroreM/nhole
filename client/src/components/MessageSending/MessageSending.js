@@ -4,6 +4,8 @@ import Title from '../Title/Title';
 import Toastr from '../Toastr/Toastr';
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
+import Chip from 'material-ui/Chip';
+
 
 const MessageTyping = styled.div`
   display: flex;
@@ -14,20 +16,14 @@ const MessageTyping = styled.div`
 `;
 
 class MessageSending extends React.Component {
-  sendMessageToMorningClient() {
-    this.props.sendMessage(document.getElementById('morning').value, 'morning')
+  state = {
+    slot: ''
   }
-
-  sendMessageToLunchClient() {
-    this.props.sendMessage(document.getElementById('lunch').value, 'lunch')
+  handleTouchTap = (slot) => {
+    this.setState({slot});
   }
-
-  sendMessageToAfternoonClient() {
-    this.props.sendMessage(document.getElementById('afternoon').value, 'afternoon')
-  }
-
-  sendMessageToEveningClient() {
-    this.props.sendMessage(document.getElementById('evening').value, 'evening')
+  sendMessageToClient = () => {
+    this.props.sendMessage(document.getElementById(this.state.slot).value, this.state.slot)
   }
 
   render() {
@@ -46,39 +42,16 @@ class MessageSending extends React.Component {
         <TextField
           underlineFocusStyle={styles.underlineFocusStyle}
           id="morning"
-          hintText="Message pour les clients du matin"
+          hintText="Message"
           floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
           multiLine={true}
           rows={2}
         />
-        <RaisedButton onClick={this.sendMessageToMorningClient.bind(this)} label='Envoyer' style={{margin: '10px'}} backgroundColor="rgb(64,64,64)" labelColor="rgb(30,144,255)" />
-        <TextField
-          underlineFocusStyle={styles.underlineFocusStyle}
-          id="lunch"
-          hintText="Message pour les clients du midi"
-          floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
-          multiLine={true}
-          rows={2}
-        />
-        <RaisedButton onClick={this.sendMessageToLunchClient.bind(this)} label='Envoyer' style={{margin: '10px'}} backgroundColor="rgb(64,64,64)" labelColor="rgb(30,144,255)" />
-        <TextField
-          underlineFocusStyle={styles.underlineFocusStyle}
-          id="afternoon"
-          hintText="Message pour les clients de l'après-midi"
-          floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
-          multiLine={true}
-          rows={2}
-        />
-        <RaisedButton onClick={this.sendMessageToAfternoonClient.bind(this)} label='Envoyer' style={{margin: '10px'}} backgroundColor="rgb(64,64,64)" labelColor="rgb(30,144,255)" />
-        <TextField
-          underlineFocusStyle={styles.underlineFocusStyle}
-          id="evening"
-          hintText="Message pour les clients du soir"
-          floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
-          multiLine={true}
-          rows={2}
-        />
-        <RaisedButton onClick={this.sendMessageToEveningClient.bind(this)} label='Envoyer' style={{margin: '10px'}} backgroundColor="rgb(64,64,64)" labelColor="rgb(30,144,255)" />
+        <Chip onClick={() => this.handleTouchTap('morning')}>Matin</Chip>
+        <Chip onClick={() => this.handleTouchTap('lunch')}>Midi</Chip>
+        <Chip onClick={() => this.handleTouchTap('afternoon')}>Après-midi</Chip>
+        <Chip onClick={() => this.handleTouchTap('evening')}>Soir</Chip>
+        <RaisedButton onClick={this.sendMessageToClient} label='Envoyer' style={{margin: '10px'}} backgroundColor="rgb(64,64,64)" labelColor="rgb(30,144,255)" />
       </MessageTyping>
     );
   }
