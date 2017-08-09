@@ -60,7 +60,7 @@ class MessageSending extends React.Component {
           <Chip onClick={() => this.handleTouchTap('afternoon')} labelColor={'rgb(64,64,64)'} backgroundColor={this.state.slot === 'afternoon' ? 'rgb(30,144,255)' : null}>Après-midi</Chip>
           <Chip onClick={() => this.handleTouchTap('evening')} labelColor={'rgb(64,64,64)'} backgroundColor={this.state.slot === 'evening' ? 'rgb(30,144,255)' : null}>Soir</Chip>
         </ChipContainer>
-        <RaisedButton onClick={this.sendMessageToClient} label='Envoyer' style={{margin: '10px'}} backgroundColor="rgb(64,64,64)" labelColor="rgb(30,144,255)" />
+        <RaisedButton onClick={this.sendMessageToClient} label='Envoyer' style={{margin: '10px'}} backgroundColor="rgb(64,64,64)" labelColor="rgb(30,144,255)" disabled={!this.state.slot}/>
       </MessageTyping>
     );
   }
