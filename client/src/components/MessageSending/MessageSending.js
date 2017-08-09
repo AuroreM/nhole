@@ -15,6 +15,13 @@ const MessageTyping = styled.div`
   overflow-y: scroll;
 `;
 
+const ChipContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 65vw;
+  margin: 25px;
+`;
+
 class MessageSending extends React.Component {
   state = {
     slot: ''
@@ -47,10 +54,12 @@ class MessageSending extends React.Component {
           multiLine={true}
           rows={2}
         />
-        <Chip onClick={() => this.handleTouchTap('morning')}>Matin</Chip>
-        <Chip onClick={() => this.handleTouchTap('lunch')}>Midi</Chip>
-        <Chip onClick={() => this.handleTouchTap('afternoon')}>Après-midi</Chip>
-        <Chip onClick={() => this.handleTouchTap('evening')}>Soir</Chip>
+        <ChipContainer>
+          <Chip onClick={() => this.handleTouchTap('morning')} labelColor={'rgb(64,64,64)'} backgroundColor={this.state.slot === 'morning' ? 'rgb(30,144,255)' : null}>Matin</Chip>
+          <Chip onClick={() => this.handleTouchTap('lunch')} labelColor={'rgb(64,64,64)'} backgroundColor={this.state.slot === 'lunch' ? 'rgb(30,144,255)' : null}>Midi</Chip>
+          <Chip onClick={() => this.handleTouchTap('afternoon')} labelColor={'rgb(64,64,64)'} backgroundColor={this.state.slot === 'afternoon' ? 'rgb(30,144,255)' : null}>Après-midi</Chip>
+          <Chip onClick={() => this.handleTouchTap('evening')} labelColor={'rgb(64,64,64)'} backgroundColor={this.state.slot === 'evening' ? 'rgb(30,144,255)' : null}>Soir</Chip>
+        </ChipContainer>
         <RaisedButton onClick={this.sendMessageToClient} label='Envoyer' style={{margin: '10px'}} backgroundColor="rgb(64,64,64)" labelColor="rgb(30,144,255)" />
       </MessageTyping>
     );
