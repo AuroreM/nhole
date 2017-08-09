@@ -1,0 +1,19 @@
+{
+    "development": {
+        "driver": "pg",
+        "database": "nholedb",
+        "user": "aurorem",
+        "password": "pswd",
+        "host": "127.0.0.1",
+        "port": 5432
+    },
+    "production": {
+        "driver": "pg",
+        "database": "nholedb",
+        "user": "aurorem",
+        "password": "pswd",
+        "host": "127.0.0.1",
+        "port": 5432
+    },
+    "sql-file": true
+}
