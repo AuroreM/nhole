@@ -1,15 +1,15 @@
 import React from 'react';
-import CheckboxContainer from '../../containers/CheckboxContainer';
+import Checkbox from '../../components/Checkbox';
 
 // @TODO : Add  Chip from material ui
 class SlotUpdate extends React.Component {
   render() {
     return (
       <div>
-        <CheckboxContainer slot={'morning'} label={'Cours du matin'} />
-        <CheckboxContainer slot={'lunch'} label={'Cours du midi'} />
-        <CheckboxContainer slot={'afternoon'} label={'Cours de l\'après-midi'} />
-        <CheckboxContainer slot={'evening'} label={'Cours du soir'} />
+        <Checkbox slot={'morning'} label={'Cours du matin'} />
+        <Checkbox slot={'lunch'} label={'Cours du midi'} />
+        <Checkbox slot={'afternoon'} label={'Cours de l\'après-midi'} />
+        <Checkbox slot={'evening'} label={'Cours du soir'} />
       </div>
     );
   }

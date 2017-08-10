@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import ClientAddition from './ClientAddition';
-import InfoUpdateContainer from '../../containers/InfoUpdateContainer';
+import InfoUpdate from '../InfoUpdate';
 import SlotUpdate from '../SlotUpdate/SlotUpdate';
 import Button from '../Button/Button';
 
@@ -10,11 +10,11 @@ describe('<ClientAddition />', () => {
     addClient: (client) => {},
   };
 
-  it('should render an InfoUpdateContainer', () => {
+  it('should render an InfoUpdate', () => {
     const renderedComponent = shallow(
       <ClientAddition {...props} />
     );
-    expect(renderedComponent.find(InfoUpdateContainer).length).toEqual(1);
+    expect(renderedComponent.find(InfoUpdate).length).toEqual(1);
   });
 
   it('should render an SlotUpdateContainer', () => {

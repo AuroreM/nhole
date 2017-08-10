@@ -2,9 +2,9 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import App from './App';
 import Header from '../Header/Header';
-import ClientAdditionContainer from '../../containers/ClientAdditionContainer';
-import ClientsDisplayContainer from '../../containers/ClientsDisplayContainer';
-import MessageSendingContainer from '../../containers/MessageSendingContainer';
+import ClientAddition from '../ClientAddition';
+import ClientsDisplay from '../ClientsDisplay';
+import MessageSending from '../MessageSending';
 import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation';
 
 describe('<App />', () => {
@@ -24,22 +24,22 @@ describe('<App />', () => {
     expect(renderedComponent.find(BottomNavigationItem).length).toEqual(3);
   });
 
-  it('should render ClientAdditionContainer if selectedIndex === 0', () => {
+  it('should render ClientAddition if selectedIndex === 0', () => {
     const renderedComponent = shallow(<App/>);
     renderedComponent.setState({selectedIndex: 0});
-    expect(renderedComponent.find(ClientAdditionContainer).length).toEqual(1);
+    expect(renderedComponent.find(ClientAddition).length).toEqual(1);
   });
 
-  it('should render ClientsDisplayContainer if selectedIndex === 1', () => {
+  it('should render ClientsDisplay if selectedIndex === 1', () => {
     const renderedComponent = shallow(<App/>);
     renderedComponent.setState({selectedIndex: 1});
-    expect(renderedComponent.find(ClientsDisplayContainer).length).toEqual(1);
+    expect(renderedComponent.find(ClientsDisplay).length).toEqual(1);
   });
 
-  it('should render MessageSendingContainer if selectedIndex === 2', () => {
+  it('should render MessageSending if selectedIndex === 2', () => {
     const renderedComponent = shallow(<App/>);
     renderedComponent.setState({selectedIndex: 2});
-    expect(renderedComponent.find(MessageSendingContainer).length).toEqual(1);
+    expect(renderedComponent.find(MessageSending).length).toEqual(1);
   });
 
   // @TODO : Tester que lorsqu'on clique on change bien le state (Faire challenger l'utilité par Flo)

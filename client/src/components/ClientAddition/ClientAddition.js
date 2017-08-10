@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import InfoUpdateContainer from '../../containers/InfoUpdateContainer';
+import InfoUpdate from '../InfoUpdate';
 import SlotUpdate from '../../components/SlotUpdate/SlotUpdate';
 import Title from '../Title/Title';
 import Toastr from '../Toastr/Toastr';
@@ -19,7 +19,7 @@ class ClientAddition extends React.Component {
     return (
       <Body style={{height: '70vh'}}>
         <Title>Renseignez ses informations</Title>
-        <InfoUpdateContainer />
+        <InfoUpdate />
         <Title>Choisissez ses créneaux</Title>
         <SlotUpdate />
         <Toastr>{this.props.message}</Toastr>

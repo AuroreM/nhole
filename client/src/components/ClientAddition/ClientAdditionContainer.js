@@ -1,10 +1,10 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import Checkbox from '../components/Checkbox/Checkbox';
-import * as updateClientSlotAction from '../components/SlotUpdate/actions';
+import ClientAddition from './ClientAddition';
+import * as ClientAdditionActions from './actions';
 
 const MapDispatchToProps = (dispatch) => {
-  return bindActionCreators(updateClientSlotAction , dispatch)
+  return bindActionCreators(ClientAdditionActions , dispatch)
 }
 
 const mapStateToProps = (state) => ({
@@ -12,6 +12,7 @@ const mapStateToProps = (state) => ({
   lunch: state.get('lunch'),
   evening: state.get('evening'),
   afternoon: state.get('afternoon'),
+  message: state.get('message'),
 });
 
-export default connect(mapStateToProps, MapDispatchToProps)(Checkbox)
+export default connect(mapStateToProps, MapDispatchToProps)(ClientAddition)

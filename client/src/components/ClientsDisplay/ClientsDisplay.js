@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import ClientContainer from '../../containers/ClientContainer';
+import Client from '../Client';
 import Title from '../Title/Title';
 
 const Body = styled.div`
@@ -26,7 +26,7 @@ class ClientsDisplay extends React.Component {
       <Clients>
           {
             this.props.clients.map(function(client) {
-              return <ClientContainer client={client} />
+              return <Client client={client} />
             })
           }
       </Clients>

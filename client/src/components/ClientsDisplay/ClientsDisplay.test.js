@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import ClientsDisplay from './ClientsDisplay';
-import ClientContainer from '../../containers/ClientContainer';
+import Client from '../Client';
 
 describe('<ClientsDisplay />', () => {
   const props = {
@@ -42,6 +42,6 @@ describe('<ClientsDisplay />', () => {
 
   it('should render 3 Client Components', () => {
     const renderedComponent = shallow(<ClientsDisplay {...props} />);
-    expect(renderedComponent.find(ClientContainer).length).toEqual(3);
+    expect(renderedComponent.find(Client).length).toEqual(3);
   });
 });

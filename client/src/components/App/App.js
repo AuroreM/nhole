@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import Header from '../Header/Header';
-import ClientAdditionContainer from '../../containers/ClientAdditionContainer';
-import ClientsDisplayContainer from '../../containers/ClientsDisplayContainer';
-import MessageSendingContainer from '../../containers/MessageSendingContainer';
+import ClientAddition from '../ClientAddition';
+import ClientsDisplay from '../ClientsDisplay';
+import MessageSending from '../MessageSending';
 import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation';
 import FontIcon from 'material-ui/FontIcon';
 
@@ -21,9 +21,9 @@ class AppContainer extends React.Component {
 
   renderTab() {
     const mapStateToComponent = {
-      0: <ClientAdditionContainer />,
-      1: <ClientsDisplayContainer />,
-      2: <MessageSendingContainer />
+      0: <ClientAddition />,
+      1: <ClientsDisplay />,
+      2: <MessageSending />
     }
 
     return mapStateToComponent[this.state.selectedIndex];
