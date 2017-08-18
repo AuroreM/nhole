@@ -34,9 +34,9 @@ class AppContainer extends React.Component {
   renderMessageSending = () => this.setState({selectedIndex: 2});
 
   render() {
-    const addClient = <FontIcon className="material-icons" style={{fontSize:'36px'}} hoverColor='rgb(30,144,255)' color='rgb(64,64,64)'>add_circle</FontIcon>;
-    const seeList = <FontIcon className="material-icons" style={{fontSize:'36px'}} hoverColor='rgb(30,144,255)' color='rgb(64,64,64)'>list</FontIcon>;
-    const sendMessage = <FontIcon className="material-icons" style={{fontSize:'34px'}} hoverColor='rgb(30,144,255)' color='rgb(64,64,64)'>message</FontIcon>;
+    const addClient = <FontIcon className="material-icons" style={{fontSize:'36px'}} color={this.state.selectedIndex === 0 ? 'rgb(30,144,255)' : 'rgb(64,64,64)'}>add_circle</FontIcon>;
+    const seeList = <FontIcon className="material-icons" style={{fontSize:'36px'}} color={this.state.selectedIndex === 1 ? 'rgb(30,144,255)' : 'rgb(64,64,64)'}>list</FontIcon>;
+    const sendMessage = <FontIcon className="material-icons" style={{fontSize:'34px'}} color={this.state.selectedIndex === 2 ? 'rgb(30,144,255)' : 'rgb(64,64,64)'}>message</FontIcon>;
     return (
       <App>
         <Header />
