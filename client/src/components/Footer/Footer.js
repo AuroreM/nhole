@@ -10,10 +10,9 @@ const FooterContainer = styled.div`
   align-self: flex-end;
 `;
 
-const Footer = () => (
+const Footer = () =>
   <FooterContainer>
     Built with love&nbsp;<span style={{ color: 'rgb(220,20,60)' }}>&#10084;</span>
-  </FooterContainer>
-);
+  </FooterContainer>;
 
 export default Footer;

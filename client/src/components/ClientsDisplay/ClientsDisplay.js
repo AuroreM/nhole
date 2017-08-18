@@ -24,25 +24,21 @@ class ClientsDisplay extends React.Component {
   renderClientList() {
     return (
       <Clients>
-          {
-            this.props.clients.map(function(client) {
-              return <Client client={client} />
-            })
-          }
+        {this.props.clients.map(function(client) {
+          return <Client client={client} />;
+        })}
       </Clients>
     );
   }
 
   render() {
     return (
-        <Body style={{height: '70vh'}}>
-          <Title>Mes clients</Title>
-          {
-            this.props.loading ? <p></p> : this.renderClientList()
-          }
-        </Body>
+      <Body style={{ height: '70vh' }}>
+        <Title>Mes clients</Title>
+        {this.props.loading ? <p /> : this.renderClientList()}
+      </Body>
     );
   }
-};
+}
 
 export default ClientsDisplay;

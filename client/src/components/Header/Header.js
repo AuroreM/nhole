@@ -4,23 +4,22 @@ import styled from 'styled-components';
 const HeaderContainer = styled.div`
   height: 10vh;
   width: 100vw;
-  background-color: rgb(64,64,64);
+  background-color: rgb(64, 64, 64);
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
 const Title = styled.h1`
-  color: rgb(30,144,255);
+  color: rgb(30, 144, 255);
   font-size: 30px;
   font-weight: normal;
   letter-spacing: 2px;
 `;
 
-const Header = () => (
+const Header = () =>
   <HeaderContainer>
     <Title>NHOLE</Title>
-  </HeaderContainer>
-);
+  </HeaderContainer>;
 
 export default Header;

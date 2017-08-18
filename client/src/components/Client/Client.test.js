@@ -15,24 +15,18 @@ describe('<ClientsDisplay />', () => {
     },
   };
 
-  it('should render client\'s name', () => {
-    const renderedComponent = mount(
-      <Client {...props} />
-    );
+  it("should render client's name", () => {
+    const renderedComponent = mount(<Client {...props} />);
     expect(renderedComponent.text()).toContain('Aurore Ma');
   });
 
-  it('should render client\'s number', () => {
-    const renderedComponent = mount(
-      <Client {...props} />
-    );
+  it("should render client's number", () => {
+    const renderedComponent = mount(<Client {...props} />);
     expect(renderedComponent.text()).toContain('01');
   });
 
-  it('should render client\'s timeslots', () => {
-    const renderedComponent = mount(
-      <Client {...props} />
-    );
+  it("should render client's timeslots", () => {
+    const renderedComponent = mount(<Client {...props} />);
     expect(renderedComponent.text()).toContain('Midi, Soirée,');
   });
 });

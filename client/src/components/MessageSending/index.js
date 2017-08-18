@@ -1,2 +1,2 @@
-export {default} from './MessageSendingContainer';
-export {default as MessageSending} from './MessageSending';
+export { default } from './MessageSendingContainer';
+export { default as MessageSending } from './MessageSending';

@@ -11,22 +11,30 @@ const Body = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow-y:scroll;
+  overflow-y: scroll;
 `;
 
 class ClientAddition extends React.Component {
   render() {
     return (
-      <Body style={{height: '70vh'}}>
+      <Body style={{ height: '70vh' }}>
         <Title>Renseignez ses informations</Title>
         <InfoUpdate />
         <Title>Choisissez ses créneaux</Title>
         <SlotUpdate />
-        <Toastr>{this.props.message}</Toastr>
-        <RaisedButton onClick={this.props.registerClient} style={{margin: '10px'}} label="Enregistrer" backgroundColor="rgb(64,64,64)" labelColor="rgb(30,144,255)"/>
+        <Toastr>
+          {this.props.message}
+        </Toastr>
+        <RaisedButton
+          onClick={this.props.registerClient}
+          style={{ margin: '10px' }}
+          label="Enregistrer"
+          backgroundColor="rgb(64,64,64)"
+          labelColor="rgb(30,144,255)"
+        />
       </Body>
     );
   }
-};
+}
 
 export default ClientAddition;

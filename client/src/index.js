@@ -3,30 +3,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { applyMiddleware, compose, createStore } from 'redux';
-import createSagaMiddleware from 'redux-saga'
-import { ClientAdditionSaga } from './components/ClientAddition/sagas'
-import { ClientsDisplaySaga } from './components/ClientsDisplay/sagas'
-import { ClientSaga } from './components/Client/sagas'
-import { MessageSendingSaga } from './components/MessageSending/sagas'
+import createSagaMiddleware from 'redux-saga';
+import { ClientAdditionSaga } from './components/ClientAddition/sagas';
+import { ClientsDisplaySaga } from './components/ClientsDisplay/sagas';
+import { ClientSaga } from './components/Client/sagas';
+import { MessageSendingSaga } from './components/MessageSending/sagas';
 import AppContainer from './components/App/App';
 import reducer from './reducer';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-const sagaMiddleWare = createSagaMiddleware()
-const enhancers = []
-let composeEnhancers = compose
-const composeWithDevToolsExtension = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+const sagaMiddleWare = createSagaMiddleware();
+const enhancers = [];
+let composeEnhancers = compose;
+const composeWithDevToolsExtension = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 if (typeof composeWithDevToolsExtension === 'function') {
-  composeEnhancers = composeWithDevToolsExtension
+  composeEnhancers = composeWithDevToolsExtension;
 }
-const store = createStore(
-  reducer,
-  Map(),
-  composeEnhancers(
-    applyMiddleware(sagaMiddleWare),
-    ...enhancers
-  )
-)
+const store = createStore(reducer, Map(), composeEnhancers(applyMiddleware(sagaMiddleWare), ...enhancers));
 sagaMiddleWare.run(ClientAdditionSaga);
 sagaMiddleWare.run(ClientsDisplaySaga);
 sagaMiddleWare.run(ClientSaga);
@@ -45,9 +38,8 @@ store.dispatch({
     evening: false,
     message: '',
     loading: true,
-  }
+  },
 });
-
 
 ReactDOM.render(
   <MuiThemeProvider>

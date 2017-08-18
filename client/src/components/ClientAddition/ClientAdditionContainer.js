@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import ClientAddition from './ClientAddition';
 import * as ClientAdditionActions from './actions';
 
-const MapDispatchToProps = (dispatch) => {
-  return bindActionCreators(ClientAdditionActions , dispatch)
-}
+const MapDispatchToProps = dispatch => {
+  return bindActionCreators(ClientAdditionActions, dispatch);
+};
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   morning: state.get('morning'),
   lunch: state.get('lunch'),
   evening: state.get('evening'),
@@ -15,4 +15,4 @@ const mapStateToProps = (state) => ({
   message: state.get('message'),
 });
 
-export default connect(mapStateToProps, MapDispatchToProps)(ClientAddition)
+export default connect(mapStateToProps, MapDispatchToProps)(ClientAddition);

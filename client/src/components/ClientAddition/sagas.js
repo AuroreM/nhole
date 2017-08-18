@@ -1,17 +1,17 @@
-import { delay } from 'redux-saga'
+import { delay } from 'redux-saga';
 import { takeLatest, call, put, select } from 'redux-saga/effects';
 import request from '../../utils/request';
 import { registerClientFail, registerClientSuccess } from './actions';
 import { clearMessage } from '../../actions';
 import { baseUrl } from '../../config';
 
-const getFirstname = (state) => state.get('firstname');
-const getLastname = (state) => state.get('lastname');
-const getNumber = (state) => state.get('number');
-const getMorning = (state) => state.get('morning');
-const getAfternoon = (state) => state.get('afternoon');
-const getLunch = (state) => state.get('lunch');
-const getEvening = (state) => state.get('evening');
+const getFirstname = state => state.get('firstname');
+const getLastname = state => state.get('lastname');
+const getNumber = state => state.get('number');
+const getMorning = state => state.get('morning');
+const getAfternoon = state => state.get('afternoon');
+const getLunch = state => state.get('lunch');
+const getEvening = state => state.get('evening');
 
 export function* sendClientToAPI() {
   const requestURL = `${baseUrl()}/api/Clients`;
@@ -26,17 +26,13 @@ export function* sendClientToAPI() {
     id: new Date().getTime(),
   });
   try {
-    yield call(
-      request,
-      requestURL,
-      {
-        method: 'POST',
-        body,
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      }
-    );
+    yield call(request, requestURL, {
+      method: 'POST',
+      body,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
     yield put(registerClientSuccess());
     yield delay(2000);
     yield put(clearMessage());
@@ -49,6 +45,4 @@ export function* ClientAdditionSaga() {
   yield takeLatest('REGISTER_CLIENT', sendClientToAPI);
 }
 
-export default [
-  ClientAdditionSaga,
-];
+export default [ClientAdditionSaga];

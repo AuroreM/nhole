@@ -5,9 +5,7 @@ import Checkbox from '../Checkbox';
 
 describe('<SlotUpdate />', () => {
   it('should render four Checkbox', () => {
-    const renderedComponent = shallow(
-      <SlotUpdate />
-    );
+    const renderedComponent = shallow(<SlotUpdate />);
     expect(renderedComponent.find(Checkbox).length).toEqual(4);
   });
 });

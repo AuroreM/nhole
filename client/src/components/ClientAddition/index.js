@@ -1,2 +1,2 @@
-export {default} from './ClientAdditionContainer';
-export {default as ClientAddition} from './ClientAddition';
+export { default } from './ClientAdditionContainer';
+export { default as ClientAddition } from './ClientAddition';

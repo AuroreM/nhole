@@ -7,19 +7,15 @@ import { baseUrl } from '../../config';
 
 export function* sendMessageToAPI({ message, slot }) {
   const requestURL = `${baseUrl()}/api/Clients/${slot}`;
-  const body = JSON.stringify({message: message})
+  const body = JSON.stringify({ message: message });
   try {
-    const response = yield call(
-      request,
-      requestURL,
-      {
-        method: 'POST',
-        body,
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      }
-    );
+    const response = yield call(request, requestURL, {
+      method: 'POST',
+      body,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
     yield put(sendMessageSuccess());
     yield delay(2000);
     yield put(clearMessage());
@@ -32,6 +28,4 @@ export function* MessageSendingSaga() {
   yield takeLatest('SEND_MESSAGE', sendMessageToAPI);
 }
 
-export default [
-  MessageSendingSaga,
-];
+export default [MessageSendingSaga];

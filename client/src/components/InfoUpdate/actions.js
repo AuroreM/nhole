@@ -4,5 +4,5 @@ export function updateClientInfo(firstname, lastname, number) {
     firstname,
     lastname,
     number,
-  }
+  };
 }
