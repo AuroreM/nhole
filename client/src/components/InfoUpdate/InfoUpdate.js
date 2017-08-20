@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import TextField from 'material-ui/TextField';
 
@@ -62,9 +63,9 @@ class InfoUpdate extends React.Component {
 }
 
 InfoUpdate.propTypes = {
-  firstname: React.PropTypes.string.isRequired,
-  lastname: React.PropTypes.string.isRequired,
-  number: React.PropTypes.string.isRequired,
+  firstname: PropTypes.string.isRequired,
+  lastname: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
 };
 
 export default InfoUpdate;

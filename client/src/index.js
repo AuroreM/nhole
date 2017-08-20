@@ -10,6 +10,7 @@ import { MessageSendingSaga } from './components/MessageSending/sagas';
 import AppContainer from './components/App/App';
 import reducer from './reducer';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
 const sagaMiddleWare = createSagaMiddleware();
 const enhancers = [];
@@ -39,6 +40,9 @@ store.dispatch({
     loading: true,
   },
 });
+
+// Needed for onTouchTap
+injectTapEventPlugin();
 
 ReactDOM.render(
   <MuiThemeProvider>
