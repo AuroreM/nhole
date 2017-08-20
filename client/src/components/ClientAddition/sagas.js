@@ -5,13 +5,14 @@ import { registerClientFail, registerClientSuccess } from './actions';
 import { clearMessage } from '../../actions';
 import { baseUrl } from '../../config';
 
-const getFirstname = state => state.firstname;
-const getLastname = state => state.lastname;
-const getNumber = state => state.number;
-const getMorning = state => state.morning;
-const getAfternoon = state => state.afternoon;
-const getLunch = state => state.lunch;
-const getEvening = state => state.evening;
+// @TODO: Use Redux form
+export const getFirstname = state => state.firstname;
+export const getLastname = state => state.lastname;
+export const getNumber = state => state.number;
+export const getMorning = state => state.morning;
+export const getAfternoon = state => state.afternoon;
+export const getLunch = state => state.lunch;
+export const getEvening = state => state.evening;
 
 export function* sendClientToAPI() {
   const requestURL = `${baseUrl()}/api/Clients`;
