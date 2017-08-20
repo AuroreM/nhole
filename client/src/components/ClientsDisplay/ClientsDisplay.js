@@ -25,7 +25,7 @@ class ClientsDisplay extends React.Component {
     return (
       <Clients>
         {this.props.clients.map(function(client) {
-          return <Client client={client} />;
+          return <Client client={client} key={client.id} />;
         })}
       </Clients>
     );

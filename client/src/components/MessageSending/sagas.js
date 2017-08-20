@@ -9,7 +9,7 @@ export function* sendMessageToAPI({ message, slot }) {
   const requestURL = `${baseUrl()}/api/Clients/${slot}`;
   const body = JSON.stringify({ message: message });
   try {
-    const response = yield call(request, requestURL, {
+    yield call(request, requestURL, {
       method: 'POST',
       body,
       headers: {
