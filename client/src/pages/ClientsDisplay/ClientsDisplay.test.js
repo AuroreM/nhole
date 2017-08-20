@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import ClientsDisplay from './ClientsDisplay';
-import Client from '../Client';
+import Client from '../../components/ClientsDisplay/Client';
 
 describe('<ClientsDisplay />', () => {
   const props = {

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Client from '../../components/Client';
+import Client from '../../components/ClientsDisplay/Client';
 import Title from '../../components/common/Title';
 
 const Body = styled.div`

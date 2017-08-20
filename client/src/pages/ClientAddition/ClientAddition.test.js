@@ -2,8 +2,8 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Button from '../../components/common/Button';
 import ClientAddition from './ClientAddition';
-import InfoUpdate from '../InfoUpdate';
-import SlotUpdate from '../SlotUpdate';
+import InfoUpdate from '../../components/ClientAddition/InfoUpdate';
+import SlotUpdate from '../../components/ClientAddition/SlotUpdate';
 
 describe('<ClientAddition />', () => {
   const props = {

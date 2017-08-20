@@ -1,8 +1,8 @@
 import { put, call } from 'redux-saga/effects';
-import { baseUrl } from '../../config';
-import request from '../../utils/request';
+import { baseUrl } from '../../../config';
+import request from '../../../utils/request';
 import { deleteClient } from './sagas';
-import { getClients } from '../../pages/ClientsDisplay/actions';
+import { getClients } from '../../../pages/ClientsDisplay/actions';
 
 describe('deleteClient Saga', () => {
   const action = {
