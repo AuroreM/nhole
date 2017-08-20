@@ -1,4 +1,3 @@
-import { Map } from 'immutable';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -19,7 +18,7 @@ const composeWithDevToolsExtension = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
 if (typeof composeWithDevToolsExtension === 'function') {
   composeEnhancers = composeWithDevToolsExtension;
 }
-const store = createStore(reducer, Map(), composeEnhancers(applyMiddleware(sagaMiddleWare), ...enhancers));
+const store = createStore(reducer, {}, composeEnhancers(applyMiddleware(sagaMiddleWare), ...enhancers));
 sagaMiddleWare.run(ClientAdditionSaga);
 sagaMiddleWare.run(ClientsDisplaySaga);
 sagaMiddleWare.run(ClientSaga);

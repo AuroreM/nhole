@@ -4,7 +4,7 @@ import MessageSending from './MessageSending';
 import * as MessageSendingActions from './actions';
 
 const mapStateToProps = state => ({
-  message: state.get('message'),
+  message: state.message,
 });
 
 const MapDispatchToProps = dispatch => {

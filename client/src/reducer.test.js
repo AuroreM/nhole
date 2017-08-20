@@ -1,9 +1,8 @@
-import { fromJS, Map } from 'immutable';
 import { expect } from 'chai';
 import reducer from './reducer';
 
 describe('reducer', () => {
-  const initialState = fromJS({
+  const initialState = {
     firstname: '',
     lastname: '',
     number: '',
@@ -12,10 +11,10 @@ describe('reducer', () => {
     afternoon: false,
     evening: false,
     loading: false,
-  });
+  };
 
   it('handles CLEAR_MESSAGE by emptying message', () => {
-    const initialStateWithMessage = fromJS({
+    const initialStateWithMessage = {
       firstname: '',
       lastname: '',
       number: '',
@@ -24,12 +23,12 @@ describe('reducer', () => {
       afternoon: false,
       evening: false,
       message: 'TOTO',
-    });
+    };
     const action = {
       type: 'CLEAR_MESSAGE',
     };
     const nextState = reducer(initialStateWithMessage, action);
-    expect(nextState.get('message')).to.equal('');
+    expect(nextState.message).to.equal('');
   });
 
   it('handles CLIENT_LIST_LOADING by setting loading to true', () => {
@@ -37,8 +36,8 @@ describe('reducer', () => {
       type: 'CLIENT_LIST_LOADING',
     };
     const nextState = reducer(initialState, action);
-    expect(nextState.get('loading')).to.equal(!initialState.get('loading'));
-    expect(nextState.get('loading')).to.equal(true);
+    expect(nextState.loading).to.equal(!initialState.loading);
+    expect(nextState.loading).to.equal(true);
   });
 
   const clients = [
@@ -63,7 +62,7 @@ describe('reducer', () => {
   ];
 
   it('handles GET_CLIENTS_SUCCESS by setting loading to false', () => {
-    const initialStateWithTrueLoading = fromJS({
+    const initialStateWithTrueLoading = {
       firstname: '',
       lastname: '',
       number: '',
@@ -72,14 +71,14 @@ describe('reducer', () => {
       afternoon: false,
       evening: false,
       loading: true,
-    });
+    };
     const action = {
       type: 'GET_CLIENTS_SUCCESS',
       clients,
     };
     const nextState = reducer(initialStateWithTrueLoading, action);
-    expect(nextState.get('loading')).to.equal(!initialStateWithTrueLoading.get('loading'));
-    expect(nextState.get('loading')).to.equal(false);
+    expect(nextState.loading).to.equal(!initialStateWithTrueLoading.loading);
+    expect(nextState.loading).to.equal(false);
   });
 
   it('handles GET_CLIENTS_SUCCESS by setting clients', () => {
@@ -88,14 +87,14 @@ describe('reducer', () => {
       clients,
     };
     const nextState = reducer(initialState, action);
-    expect(nextState.get('clients')).to.equal(clients);
+    expect(nextState.clients).to.equal(clients);
   });
 
   it('handles SET_STATE', () => {
-    const initialEmptyState = Map();
+    const initialEmptyState = {};
     const action = {
       type: 'SET_STATE',
-      state: Map(initialState),
+      state: initialState,
     };
 
     const nextState = reducer(initialEmptyState, action);
@@ -110,9 +109,9 @@ describe('reducer', () => {
       number: '',
     };
     const nextState = reducer(initialState, action);
-    expect(nextState.get('firstname')).to.equal('Aurore');
-    expect(nextState.get('lastname')).to.equal(initialState.get('lastname'));
-    expect(nextState.get('number')).to.equal(initialState.get('number'));
+    expect(nextState.firstname).to.equal('Aurore');
+    expect(nextState.lastname).to.equal(initialState.lastname);
+    expect(nextState.number).to.equal(initialState.number);
   });
 
   it('handles UPDATE_CLIENT_INFO by changing only the lastname', () => {
@@ -123,9 +122,9 @@ describe('reducer', () => {
       number: '',
     };
     const nextState = reducer(initialState, action);
-    expect(nextState.get('firstname')).to.equal(initialState.get('firstname'));
-    expect(nextState.get('lastname')).to.equal('Ma');
-    expect(nextState.get('number')).to.equal(initialState.get('number'));
+    expect(nextState.firstname).to.equal(initialState.firstname);
+    expect(nextState.lastname).to.equal('Ma');
+    expect(nextState.number).to.equal(initialState.number);
   });
 
   it('handles UPDATE_CLIENT_INFO by changing only the number', () => {
@@ -136,9 +135,9 @@ describe('reducer', () => {
       number: '0612345678',
     };
     const nextState = reducer(initialState, action);
-    expect(nextState.get('firstname')).to.equal(initialState.get('lastname'));
-    expect(nextState.get('lastname')).to.equal(initialState.get('lastname'));
-    expect(nextState.get('number')).to.equal('0612345678');
+    expect(nextState.firstname).to.equal(initialState.lastname);
+    expect(nextState.lastname).to.equal(initialState.lastname);
+    expect(nextState.number).to.equal('0612345678');
   });
 
   it('handles UPDATE_SLOT_CHOICES by changing the morning slot to true', () => {
@@ -147,12 +146,12 @@ describe('reducer', () => {
       slot: 'morning',
     };
     const nextState = reducer(initialState, action);
-    expect(nextState.get('morning')).to.equal(!initialState.get('morning'));
-    expect(nextState.get('morning')).to.equal(true);
+    expect(nextState.morning).to.equal(!initialState.morning);
+    expect(nextState.morning).to.equal(true);
   });
 
   it('handles UPDATE_SLOT_CHOICES by changing the morning slot to false', () => {
-    const initialStateWithTrueMorning = fromJS({
+    const initialStateWithTrueMorning = {
       firstname: '',
       lastname: '',
       number: '',
@@ -160,13 +159,13 @@ describe('reducer', () => {
       lunch: false,
       afternoon: false,
       evening: false,
-    });
+    };
     const action = {
       type: 'UPDATE_SLOT_CHOICES',
       slot: 'morning',
     };
     const nextState = reducer(initialStateWithTrueMorning, action);
-    expect(nextState.get('morning')).to.equal(!initialStateWithTrueMorning.get('morning'));
-    expect(nextState.get('morning')).to.equal(false);
+    expect(nextState.morning).to.equal(!initialStateWithTrueMorning.morning);
+    expect(nextState.morning).to.equal(false);
   });
 });

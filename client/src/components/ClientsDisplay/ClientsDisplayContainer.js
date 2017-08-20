@@ -8,8 +8,8 @@ const MapDispatchToProps = dispatch => {
 };
 
 const mapStateToProps = state => ({
-  loading: state.get('loading'),
-  clients: state.get('clients'),
+  loading: state.loading,
+  clients: state.clients,
 });
 
 export default connect(mapStateToProps, MapDispatchToProps)(ClientsDisplay);

@@ -28,7 +28,6 @@
   "devDependencies": {
     "eslint": "^3.17.1",
     "eslint-config-loopback": "^8.0.0",
-    "immutable": "^3.8.1",
     "nsp": "^2.1.0"
   },
   "repository": {

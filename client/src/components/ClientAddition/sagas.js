@@ -5,13 +5,13 @@ import { registerClientFail, registerClientSuccess } from './actions';
 import { clearMessage } from '../../actions';
 import { baseUrl } from '../../config';
 
-const getFirstname = state => state.get('firstname');
-const getLastname = state => state.get('lastname');
-const getNumber = state => state.get('number');
-const getMorning = state => state.get('morning');
-const getAfternoon = state => state.get('afternoon');
-const getLunch = state => state.get('lunch');
-const getEvening = state => state.get('evening');
+const getFirstname = state => state.firstname;
+const getLastname = state => state.lastname;
+const getNumber = state => state.number;
+const getMorning = state => state.morning;
+const getAfternoon = state => state.afternoon;
+const getLunch = state => state.lunch;
+const getEvening = state => state.evening;
 
 export function* sendClientToAPI() {
   const requestURL = `${baseUrl()}/api/Clients`;
