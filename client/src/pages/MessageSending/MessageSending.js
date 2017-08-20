@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import Title from '../Title/Title';
-import Toastr from '../Toastr/Toastr';
 import TextField from 'material-ui/TextField';
-import Button from '../Button';
 import Chip from 'material-ui/Chip';
+import Title from '../../components/Title/Title';
+import Toastr from '../../components/Toastr/Toastr';
+import Button from '../../components/Button';
 
 const MessageTyping = styled.div`
   display: flex;

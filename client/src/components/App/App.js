@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import Header from '../Header/Header';
-import ClientAddition from '../ClientAddition';
-import ClientsDisplay from '../ClientsDisplay';
-import MessageSending from '../MessageSending';
+import ClientAddition from '../../pages/ClientAddition';
+import ClientsDisplay from '../../pages/ClientsDisplay';
+import MessageSending from '../../pages/MessageSending';
 import { BottomNavigation, BottomNavigationItem } from 'material-ui/BottomNavigation';
 import FontIcon from 'material-ui/FontIcon';
 

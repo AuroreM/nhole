@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Client from './Client';
 
-describe('<ClientsDisplay />', () => {
+describe('<Client />', () => {
   const props = {
     client: {
       firstname: 'Aurore',

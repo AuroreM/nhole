@@ -2,7 +2,7 @@ import { delay } from 'redux-saga';
 import { takeLatest, call, put } from 'redux-saga/effects';
 import request from '../../utils/request';
 import { clearMessage } from '../../actions';
-import { getClients } from '../ClientsDisplay/actions';
+import { getClients } from '../../pages/ClientsDisplay/actions';
 import { baseUrl } from '../../config';
 
 export function* deleteClient(action) {

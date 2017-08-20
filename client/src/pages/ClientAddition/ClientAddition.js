@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import InfoUpdate from '../InfoUpdate';
+import InfoUpdate from '../../components/InfoUpdate';
 import SlotUpdate from '../../components/SlotUpdate/';
-import Title from '../Title/Title';
-import Toastr from '../Toastr/Toastr';
-import Button from '../Button';
+import Title from '../../components/Title/Title';
+import Toastr from '../../components/Toastr/Toastr';
+import Button from '../../components/Button';
 
 const Body = styled.div`
   height: 80vh;
