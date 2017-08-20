@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Client from '../../components/Client';
-import Title from '../../components/Title/Title';
+import Title from '../../components/common/Title';
 
 const Body = styled.div`
   display: flex;

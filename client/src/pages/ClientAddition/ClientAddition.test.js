@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Button from '../Button';
+import Button from '../../components/common/Button';
 import ClientAddition from './ClientAddition';
 import InfoUpdate from '../InfoUpdate';
 import SlotUpdate from '../SlotUpdate';

@@ -1,9 +1,9 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
-import MessageSending from './MessageSending';
-import Button from '../Button';
 import TextField from 'material-ui/TextField';
 import Chip from 'material-ui/Chip';
+import MessageSending from './MessageSending';
+import Button from '../../components/common/Button';
 
 // @TODO fix tests
 describe('<MessageSending />', () => {

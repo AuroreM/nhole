@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Header from '../Header/Header';
+import Header from '../common/Header';
 import ClientAddition from '../../pages/ClientAddition';
 import ClientsDisplay from '../../pages/ClientsDisplay';
 import MessageSending from '../../pages/MessageSending';
