@@ -1,15 +1,16 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import RaisedButton from 'material-ui/RaisedButton';
 import ClientAddition from './ClientAddition';
 import InfoUpdate from '../InfoUpdate';
 import SlotUpdate from '../SlotUpdate/SlotUpdate';
-import Button from '../Button/Button';
 
 describe('<ClientAddition />', () => {
   const props = {
     addClient: client => {},
   };
 
+  // Should add a store to connect the component
   it('should render an InfoUpdate', () => {
     const renderedComponent = shallow(<ClientAddition {...props} />);
     expect(renderedComponent.find(InfoUpdate).length).toEqual(1);
@@ -22,7 +23,7 @@ describe('<ClientAddition />', () => {
 
   it('should render a Button', () => {
     const renderedComponent = shallow(<ClientAddition {...props} />);
-    expect(renderedComponent.find(SlotUpdate).length).toEqual(1);
+    expect(renderedComponent.find(RaisedButton).length).toEqual(1);
   });
 
   // it('should dispatch REGISTER_CLIENT action when clicking on register button', () => {

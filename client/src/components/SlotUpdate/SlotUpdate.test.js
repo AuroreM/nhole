@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import SlotUpdate from './SlotUpdate';
-import Checkbox from '../Checkbox';
+import Chip from 'material-ui/Chip';
 
 describe('<SlotUpdate />', () => {
-  it('should render four Checkbox', () => {
+  it('should render 4 Chip', () => {
     const renderedComponent = shallow(<SlotUpdate />);
-    expect(renderedComponent.find(Checkbox).length).toEqual(4);
+    expect(renderedComponent.find(Chip).length).toEqual(4);
   });
 });
