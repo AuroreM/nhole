@@ -14,7 +14,10 @@ export function* deleteClient(action) {
       'Content-Type': 'application/json',
     },
   });
+  // @Todo : Think about a way of not refreshing the list
+  // + The name of the action is unclear : it gets the clients list and displays a message
   yield put(getClients());
+  // @Todo : Handle Message globally
   yield delay(2000);
   yield put(clearMessage());
 }
