@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
 import MessageSending from './MessageSending';
-import RaisedButton from 'material-ui/RaisedButton';
+import Button from '../Button';
 import TextField from 'material-ui/TextField';
 import Chip from 'material-ui/Chip';
 
@@ -17,5 +17,10 @@ describe('<MessageSending />', () => {
   it('should contains 4 Chip', () => {
     const renderedComponent = shallow(<MessageSending {...props} />);
     expect(renderedComponent.find(Chip).length).toEqual(4);
+  });
+
+  it('should contains 1 Button', () => {
+    const renderedComponent = shallow(<MessageSending {...props} />);
+    expect(renderedComponent.find(Button).length).toEqual(1);
   });
 });

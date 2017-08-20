@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Title from '../Title/Title';
 import Toastr from '../Toastr/Toastr';
 import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
+import Button from '../Button';
 import Chip from 'material-ui/Chip';
 
 const MessageTyping = styled.div`
@@ -85,14 +85,7 @@ class MessageSending extends React.Component {
             Soir
           </Chip>
         </ChipContainer>
-        <RaisedButton
-          onClick={this.sendMessageToClient}
-          label="Envoyer"
-          style={{ margin: '10px' }}
-          backgroundColor="rgb(64,64,64)"
-          labelColor="rgb(30,144,255)"
-          disabled={!this.state.slot}
-        />
+        <Button onClick={this.sendMessageToClient} label="Envoyer" disabled={!this.state.slot} />
       </MessageTyping>
     );
   }

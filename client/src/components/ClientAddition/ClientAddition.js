@@ -4,7 +4,7 @@ import InfoUpdate from '../InfoUpdate';
 import SlotUpdate from '../../components/SlotUpdate/';
 import Title from '../Title/Title';
 import Toastr from '../Toastr/Toastr';
-import RaisedButton from 'material-ui/RaisedButton';
+import Button from '../Button';
 
 const Body = styled.div`
   height: 80vh;
@@ -25,13 +25,7 @@ class ClientAddition extends React.Component {
         <Toastr>
           {this.props.message}
         </Toastr>
-        <RaisedButton
-          onClick={this.props.registerClient}
-          style={{ margin: '10px' }}
-          label="Enregistrer"
-          backgroundColor="rgb(64,64,64)"
-          labelColor="rgb(30,144,255)"
-        />
+        <Button onClick={this.props.registerClient} label="Enregistrer" />
       </Body>
     );
   }
