@@ -29,7 +29,7 @@ class MessageSending extends React.Component {
     this.setState({ slot });
   };
   sendMessageToClient = () => {
-    this.props.sendMessage(document.getElementById(this.state.slot).value, this.state.slot);
+    this.props.sendMessage(document.getElementById('message').value, this.state.slot);
   };
 
   render() {
@@ -49,7 +49,7 @@ class MessageSending extends React.Component {
         </Toastr>
         <TextField
           underlineFocusStyle={styles.underlineFocusStyle}
-          id="morning"
+          id="message"
           hintText="Message"
           floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
           multiLine={true}
