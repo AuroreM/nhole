@@ -32,8 +32,11 @@ describe('sendMessage Saga - Success case', () => {
     expect(saga.next().value).toEqual(put(displayToastr('Message envoyé !')));
   });
 
+  it('should wait 2 seconds', () => {
+    expect(saga.next().value).toEqual(call(delay, 2000));
+  });
+
   it('should clear the toastr', () => {
-    saga.next(); // delay(2000)
     expect(saga.next().value).toEqual(put(clearToastr()));
   });
 });

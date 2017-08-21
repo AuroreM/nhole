@@ -16,7 +16,7 @@ export function* sendMessage({ message, slot }) {
       },
     });
     yield put(displayToastr('Message envoyé !'));
-    yield delay(2000);
+    yield call(delay, 2000);
     yield put(clearToastr());
   } catch (err) {
     yield put(displayToastr("Un problème est survenu, le message n'a pas été envoyé"));

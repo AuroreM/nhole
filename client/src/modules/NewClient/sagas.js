@@ -36,7 +36,7 @@ export function* sendClient() {
     });
     yield put(registerClientSuccess());
     yield put(displayToastr('Client enregistré !'));
-    yield delay(2000);
+    yield call(delay, 2000);
     yield put(clearToastr());
   } catch (err) {
     yield put(displayToastr("Un problème est survenu lors de l'enregistrement"));

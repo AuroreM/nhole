@@ -1,4 +1,5 @@
 import { put, call, select } from 'redux-saga/effects';
+import { delay } from 'redux-saga';
 import { baseUrl } from '../../config';
 import request from '../../utils/request';
 import { sendClient } from './sagas';
@@ -53,8 +54,11 @@ describe('sendClient Saga when message is sent', () => {
     expect(saga.next().value).toEqual(put(displayToastr('Client enregistré !')));
   });
 
+  it('should wait 2 seconds', () => {
+    expect(saga.next().value).toEqual(call(delay, 2000));
+  });
+
   it('should clear the toastr', () => {
-    saga.next(); // delay(2000)
     expect(saga.next().value).toEqual(put(clearToastr("Un problème est survenu lors de l'enregistrement")));
   });
 });
