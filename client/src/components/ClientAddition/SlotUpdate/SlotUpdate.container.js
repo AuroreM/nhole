@@ -1,7 +1,8 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import SlotUpdate from './SlotUpdate';
-import * as SlotUpdateActions from './actions';
+// WARNING : all the new client actions are bound ...
+import * as SlotUpdateActions from '../../../modules/NewClient/actions';
 
 const MapDispatchToProps = dispatch => {
   return bindActionCreators(SlotUpdateActions, dispatch);

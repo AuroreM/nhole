@@ -42,8 +42,8 @@ export function* sendClientToAPI() {
   }
 }
 
-export function* ClientAdditionSaga() {
+export function* NewClientSaga() {
   yield takeLatest('REGISTER_CLIENT', sendClientToAPI);
 }
 
-export default [ClientAdditionSaga];
+export default [NewClientSaga];

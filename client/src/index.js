@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { applyMiddleware, compose, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import { ClientAdditionSaga } from './pages/ClientAddition/sagas';
+import { NewClientSaga } from './modules/NewClient/sagas';
 import { ClientsSaga } from './modules/Clients/sagas';
 import { MessageSendingSaga } from './pages/MessageSending/sagas';
 import AppContainer from './App';
@@ -19,7 +19,7 @@ if (typeof composeWithDevToolsExtension === 'function') {
   composeEnhancers = composeWithDevToolsExtension;
 }
 const store = createStore(reducer, {}, composeEnhancers(applyMiddleware(sagaMiddleWare), ...enhancers));
-sagaMiddleWare.run(ClientAdditionSaga);
+sagaMiddleWare.run(NewClientSaga);
 sagaMiddleWare.run(ClientsSaga);
 sagaMiddleWare.run(MessageSendingSaga);
 
