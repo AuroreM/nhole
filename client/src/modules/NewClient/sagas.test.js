@@ -3,6 +3,7 @@ import { baseUrl } from '../../config';
 import request from '../../utils/request';
 import { sendClient } from './sagas';
 import { registerClientSuccess } from './actions';
+import { displayToastr, clearToastr } from '../Toastr/actions';
 import { getFirstname, getLastname, getNumber, getMorning, getLunch, getAfternoon, getEvening } from './sagas';
 
 describe('sendClient Saga when message is sent', () => {
@@ -47,5 +48,13 @@ describe('sendClient Saga when message is sent', () => {
   it('should dispatch the registerClientSuccess', () => {
     expect(saga.next().value).toEqual(put(registerClientSuccess()));
   });
-  // Message is not tested as the behaviour will change
+
+  it('should display a success toastr', () => {
+    expect(saga.next().value).toEqual(put(displayToastr('Client enregistré !')));
+  });
+
+  it('should clear the toastr', () => {
+    saga.next(); // delay(2000)
+    expect(saga.next().value).toEqual(put(clearToastr("Un problème est survenu lors de l'enregistrement")));
+  });
 });

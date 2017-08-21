@@ -13,11 +13,6 @@ export default function(
   switch (action.type) {
     default:
       break;
-    case 'REGISTER_CLIENT_FAIL':
-      return {
-        ...state,
-        message: "Un problème est survenu lors de l'enregistrement",
-      };
     case 'REGISTER_CLIENT_SUCCESS':
       return {
         firstname: '',
@@ -27,7 +22,6 @@ export default function(
         lunch: false,
         afternoon: false,
         evening: false,
-        message: 'Client enregistré !',
       };
     case 'UPDATE_CLIENT_INFO':
       return {

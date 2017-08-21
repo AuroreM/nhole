@@ -29,7 +29,7 @@ describe('<ClientAddition />', () => {
   // });
 
   it('should render a message if any', () => {
-    const renderedComponent = shallow(<ClientAddition {...props} message={'Client ajouté'} />);
+    const renderedComponent = shallow(<ClientAddition {...props} toast={'Client ajouté'} />);
     expect(renderedComponent.contains('Client ajouté')).toBe(true);
   });
 });

@@ -1,10 +1,11 @@
 import { put, call } from 'redux-saga/effects';
+import { delay } from 'redux-saga';
 import { baseUrl } from '../../config';
 import request from '../../utils/request';
 import { sendMessage } from './sagas';
-import { sendMessageSuccess } from './actions';
+import { displayToastr, clearToastr } from '../Toastr/actions';
 
-describe('sendMessage Saga', () => {
+describe('sendMessage Saga - Success case', () => {
   const action = {
     type: 'SEND_MESSAGE',
     message: 'The message',
@@ -27,9 +28,12 @@ describe('sendMessage Saga', () => {
     );
   });
 
-  it('should call the API to get the updated list of clients', () => {
-    expect(saga.next().value).toEqual(put(sendMessageSuccess()));
+  it('should display a successful toastr', () => {
+    expect(saga.next().value).toEqual(put(displayToastr('Message envoyé !')));
   });
 
-  // Message is not tested as the behaviour will change
+  it('should clear the toastr', () => {
+    saga.next(); // delay(2000)
+    expect(saga.next().value).toEqual(put(clearToastr()));
+  });
 });

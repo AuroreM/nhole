@@ -12,7 +12,7 @@ const mapStateToProps = state => ({
   lunch: state.newClient.lunch,
   evening: state.newClient.evening,
   afternoon: state.newClient.afternoon,
-  message: state.other.message,
+  toast: state.toastr.wording,
 });
 
 export default connect(mapStateToProps, MapDispatchToProps)(ClientAddition);
