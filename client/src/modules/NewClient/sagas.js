@@ -6,13 +6,13 @@ import { clearMessage } from '../../actions';
 import { baseUrl } from '../../config';
 
 // @TODO: Use Redux form
-export const getFirstname = state => state.firstname;
-export const getLastname = state => state.lastname;
-export const getNumber = state => state.number;
-export const getMorning = state => state.morning;
-export const getAfternoon = state => state.afternoon;
-export const getLunch = state => state.lunch;
-export const getEvening = state => state.evening;
+export const getFirstname = state => state.other.firstname;
+export const getLastname = state => state.other.lastname;
+export const getNumber = state => state.other.number;
+export const getMorning = state => state.other.morning;
+export const getAfternoon = state => state.other.afternoon;
+export const getLunch = state => state.other.lunch;
+export const getEvening = state => state.other.evening;
 
 export function* sendClient() {
   const requestURL = `${baseUrl()}/api/Clients`;

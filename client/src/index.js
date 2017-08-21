@@ -23,22 +23,6 @@ sagaMiddleWare.run(NewClientSaga);
 sagaMiddleWare.run(ClientsSaga);
 sagaMiddleWare.run(MessageSaga);
 
-store.dispatch({
-  type: 'SET_STATE',
-  state: {
-    clients: [],
-    firstname: '',
-    lastname: '',
-    number: '',
-    morning: false,
-    lunch: false,
-    afternoon: false,
-    evening: false,
-    message: '',
-    loading: true,
-  },
-});
-
 // Needed for onTouchTap
 injectTapEventPlugin();
 

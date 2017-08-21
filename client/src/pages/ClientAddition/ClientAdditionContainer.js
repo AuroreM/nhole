@@ -8,11 +8,11 @@ const MapDispatchToProps = dispatch => {
 };
 
 const mapStateToProps = state => ({
-  morning: state.morning,
-  lunch: state.lunch,
-  evening: state.evening,
-  afternoon: state.afternoon,
-  message: state.message,
+  morning: state.other.morning,
+  lunch: state.other.lunch,
+  evening: state.other.evening,
+  afternoon: state.other.afternoon,
+  message: state.other.message,
 });
 
 export default connect(mapStateToProps, MapDispatchToProps)(ClientAddition);

@@ -1,4 +1,20 @@
-export default function(state = {}, action) {
+// @flow
+import clientsReducer from './Clients';
+import { combineReducers } from 'redux';
+
+const reducer = function(
+  state = {
+    firstname: '',
+    lastname: '',
+    number: '',
+    morning: false,
+    lunch: false,
+    evening: false,
+    afternoon: false,
+    message: '',
+  },
+  action
+) {
   switch (action.type) {
     default:
       break;
@@ -7,19 +23,6 @@ export default function(state = {}, action) {
         ...state,
         message: '',
       };
-    case 'CLIENT_LIST_LOADING':
-      return {
-        ...state,
-        loading: true,
-      };
-    case 'GET_CLIENTS_FAIL':
-      break;
-    case 'GET_CLIENTS_SUCCESS':
-      return {
-        ...state,
-        loading: false,
-        clients: action.clients,
-      };
     case 'REGISTER_CLIENT_FAIL':
       return {
         ...state,
@@ -27,7 +30,6 @@ export default function(state = {}, action) {
       };
     case 'REGISTER_CLIENT_SUCCESS':
       return {
-        clients: [],
         firstname: '',
         lastname: '',
         number: '',
@@ -36,10 +38,7 @@ export default function(state = {}, action) {
         afternoon: false,
         evening: false,
         message: 'Client enregistré !',
-        loading: true,
       };
-    case 'SET_STATE':
-      return action.state;
     case 'SEND_MESSAGE_FAIL':
       break;
     case 'SEND_MESSAGE_SUCCESS':
@@ -62,4 +61,9 @@ export default function(state = {}, action) {
       };
   }
   return state;
-}
+};
+
+export default combineReducers({
+  clients: clientsReducer,
+  other: reducer,
+});

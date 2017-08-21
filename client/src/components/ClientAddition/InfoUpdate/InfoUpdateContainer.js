@@ -9,9 +9,9 @@ const MapDispatchToProps = dispatch => {
 };
 
 const mapStateToProps = state => ({
-  firstname: state.firstname,
-  lastname: state.lastname,
-  number: state.number,
+  firstname: state.other.firstname,
+  lastname: state.other.lastname,
+  number: state.other.number,
 });
 
 export default connect(mapStateToProps, MapDispatchToProps)(InfoUpdate);

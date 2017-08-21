@@ -9,35 +9,37 @@ describe('<ClientsDisplay />', () => {
     clientsListLoading: () => {},
     getClientsFail: () => {},
     getClientsSuccess: clients => {},
-    clients: [
-      ('client': {
-        firstname: 'Aurore',
-        lastname: 'Ma',
-        number: '01',
-        morning: false,
-        lunch: true,
-        afternoon: false,
-        evening: true,
-      }),
-      ('client': {
-        firstname: 'Christine',
-        lastname: 'Ma',
-        number: '02',
-        morning: true,
-        lunch: false,
-        afternoon: false,
-        evening: true,
-      }),
-      ('client': {
-        firstname: 'Elliot',
-        lastname: 'Ma',
-        number: '03',
-        morning: false,
-        lunch: false,
-        afternoon: true,
-        evening: true,
-      }),
-    ],
+    clients: {
+      list: [
+        ('client': {
+          firstname: 'Aurore',
+          lastname: 'Ma',
+          number: '01',
+          morning: false,
+          lunch: true,
+          afternoon: false,
+          evening: true,
+        }),
+        ('client': {
+          firstname: 'Christine',
+          lastname: 'Ma',
+          number: '02',
+          morning: true,
+          lunch: false,
+          afternoon: false,
+          evening: true,
+        }),
+        ('client': {
+          firstname: 'Elliot',
+          lastname: 'Ma',
+          number: '03',
+          morning: false,
+          lunch: false,
+          afternoon: true,
+          evening: true,
+        }),
+      ],
+    },
   };
 
   it('should render 3 Client Components', () => {

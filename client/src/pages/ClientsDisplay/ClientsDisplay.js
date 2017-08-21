@@ -17,14 +17,14 @@ const Clients = styled.div`
 `;
 
 class ClientsDisplay extends React.Component {
-  componentDidMount() {
+  componentWillMount() {
     this.props.getClients();
   }
 
   renderClientList() {
     return (
       <Clients>
-        {this.props.clients.map(function(client) {
+        {this.props.clients.list.map(function(client) {
           return <Client client={client} key={client.id} />;
         })}
       </Clients>
