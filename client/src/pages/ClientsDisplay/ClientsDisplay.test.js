@@ -6,7 +6,7 @@ import Client from '../../components/ClientsDisplay/Client';
 describe('<ClientsDisplay />', () => {
   const props = {
     getClients: () => {},
-    clientListLoading: () => {},
+    clientsListLoading: () => {},
     getClientsFail: () => {},
     getClientsSuccess: clients => {},
     clients: [

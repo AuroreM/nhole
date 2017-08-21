@@ -4,8 +4,7 @@ import { Provider } from 'react-redux';
 import { applyMiddleware, compose, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { ClientAdditionSaga } from './pages/ClientAddition/sagas';
-import { ClientsDisplaySaga } from './pages/ClientsDisplay/sagas';
-import { ClientSaga } from './components/ClientsDisplay/Client/sagas';
+import { ClientsSaga } from './modules/Clients/sagas';
 import { MessageSendingSaga } from './pages/MessageSending/sagas';
 import AppContainer from './App';
 import reducer from './reducer';
@@ -21,8 +20,7 @@ if (typeof composeWithDevToolsExtension === 'function') {
 }
 const store = createStore(reducer, {}, composeEnhancers(applyMiddleware(sagaMiddleWare), ...enhancers));
 sagaMiddleWare.run(ClientAdditionSaga);
-sagaMiddleWare.run(ClientsDisplaySaga);
-sagaMiddleWare.run(ClientSaga);
+sagaMiddleWare.run(ClientsSaga);
 sagaMiddleWare.run(MessageSendingSaga);
 
 store.dispatch({

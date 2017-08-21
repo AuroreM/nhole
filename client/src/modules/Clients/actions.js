@@ -3,7 +3,7 @@ export function getClients() {
     type: 'GET_CLIENTS',
   };
 }
-export function clientListLoading() {
+export function clientsListLoading() {
   return {
     type: 'CLIENT_LIST_LOADING',
   };
@@ -17,5 +17,11 @@ export function getClientsSuccess(clients) {
   return {
     type: 'GET_CLIENTS_SUCCESS',
     clients,
+  };
+}
+export function deleteClient(clientId) {
+  return {
+    type: 'DELETE_CLIENT',
+    clientId,
   };
 }
