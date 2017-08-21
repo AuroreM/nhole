@@ -8,10 +8,10 @@ const MapDispatchToProps = dispatch => {
 };
 
 const mapStateToProps = state => ({
-  morning: state.other.morning,
-  lunch: state.other.lunch,
-  evening: state.other.evening,
-  afternoon: state.other.afternoon,
+  morning: state.newClient.morning,
+  lunch: state.newClient.lunch,
+  evening: state.newClient.evening,
+  afternoon: state.newClient.afternoon,
   message: state.other.message,
 });
 
