@@ -14,7 +14,7 @@ export const getAfternoon = state => state.afternoon;
 export const getLunch = state => state.lunch;
 export const getEvening = state => state.evening;
 
-export function* sendClientToAPI() {
+export function* sendClient() {
   const requestURL = `${baseUrl()}/api/Clients`;
   const body = JSON.stringify({
     firstname: yield select(getFirstname),
@@ -43,7 +43,7 @@ export function* sendClientToAPI() {
 }
 
 export function* NewClientSaga() {
-  yield takeLatest('REGISTER_CLIENT', sendClientToAPI);
+  yield takeLatest('REGISTER_CLIENT', sendClient);
 }
 
 export default [NewClientSaga];

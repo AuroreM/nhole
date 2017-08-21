@@ -1,16 +1,16 @@
 import { put, call, select } from 'redux-saga/effects';
 import { baseUrl } from '../../config';
 import request from '../../utils/request';
-import { sendClientToAPI } from './sagas';
+import { sendClient } from './sagas';
 import { registerClientSuccess } from './actions';
 import { getFirstname, getLastname, getNumber, getMorning, getLunch, getAfternoon, getEvening } from './sagas';
 
-describe('sendClientToAPI Saga when message is sent', () => {
+describe('sendClient Saga when message is sent', () => {
   const action = {
     type: 'REGISTER_CLIENT',
   };
 
-  const saga = sendClientToAPI(action);
+  const saga = sendClient(action);
 
   it('should get all the usefull information from the store', () => {
     expect(saga.next().value).toEqual(select(getFirstname));

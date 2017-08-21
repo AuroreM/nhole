@@ -1,7 +1,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import MessageSending from './MessageSending';
-import * as MessageSendingActions from './actions';
+import * as MessageSendingActions from '../../modules/Message/actions';
 
 const mapStateToProps = state => ({
   message: state.message,

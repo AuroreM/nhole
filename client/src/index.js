@@ -5,7 +5,7 @@ import { applyMiddleware, compose, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { NewClientSaga } from './modules/NewClient/sagas';
 import { ClientsSaga } from './modules/Clients/sagas';
-import { MessageSendingSaga } from './pages/MessageSending/sagas';
+import { MessageSaga } from './modules/Message/sagas';
 import AppContainer from './App';
 import reducer from './reducer';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -21,7 +21,7 @@ if (typeof composeWithDevToolsExtension === 'function') {
 const store = createStore(reducer, {}, composeEnhancers(applyMiddleware(sagaMiddleWare), ...enhancers));
 sagaMiddleWare.run(NewClientSaga);
 sagaMiddleWare.run(ClientsSaga);
-sagaMiddleWare.run(MessageSendingSaga);
+sagaMiddleWare.run(MessageSaga);
 
 store.dispatch({
   type: 'SET_STATE',
