@@ -1,23 +1,24 @@
-'use strict';
-module.exports = function(Client) {
-  var smsGateway = require('sms-gateway-nodejs')('a.malherbes@gmail.com', 'TOTOFOOBAR123');
-  var sendSMS = function(client, message) {
+module.exports = Client => {
+  var smsGatewayPackage = require('sms-gateway-nodejs');
+  var smsGateway = smsGatewayPackage('a.malherbes@gmail.com', 'TOTOFOOBAR123');
+  var sendSMS = (clientNumbers, message) => {
     smsGateway.message
-      .sendMessageToNumber('46773', String(client.number), message)
-      .then(function(data) {
+      .sendMessageToNumbers('46773', clientNumbers, message)
+      .then(data => {
         console.log(data);
-        console.log('Message sent');
+        console.log('Messages sent');
       })
-      .catch(function(message) {
+      .catch(message => {
         console.log('Failed', message);
       });
   };
-  Client.sendSMSToMorningClient = function(message, cb) {
-    Client.find({ where: { morning: true } }, function(err, results) {
-      results.map(function(result) {
-        sendSMS(result, message);
+  Client.sendSMSToMorningClient = (message, cb) => {
+    Client.find({ where: { morning: true } }, (err, results) => {
+      const clientNumbers = results.map(client => {
+        return String(client.number);
       });
-      cb(null, results);
+      sendSMS(clientNumbers, message);
+      cb(null, clientNumbers);
     });
   };
   Client.remoteMethod('sendSMSToMorningClient', {
@@ -26,12 +27,13 @@ module.exports = function(Client) {
     returns: { arg: 'OK', type: 'string' },
   });
 
-  Client.sendSMSToLunchClient = function(message, cb) {
-    Client.find({ where: { lunch: true } }, function(err, results) {
-      results.map(function(result) {
-        sendSMS(result, message);
+  Client.sendSMSToLunchClient = (message, cb) => {
+    Client.find({ where: { lunch: true } }, (err, results) => {
+      const clientNumbers = results.map(client => {
+        return String(client.number);
       });
-      cb(null, results);
+      sendSMS(clientNumbers, message);
+      cb(null, clientNumbers);
     });
   };
   Client.remoteMethod('sendSMSToLunchClient', {
@@ -40,12 +42,13 @@ module.exports = function(Client) {
     returns: { arg: 'OK', type: 'string' },
   });
 
-  Client.sendSMSToAfternoonClient = function(message, cb) {
-    Client.find({ where: { afternoon: true } }, function(err, results) {
-      results.map(function(result) {
-        sendSMS(result, message);
+  Client.sendSMSToAfternoonClient = (message, cb) => {
+    Client.find({ where: { afternoon: true } }, (err, results) => {
+      const clientNumbers = results.map(client => {
+        return String(client.number);
       });
-      cb(null, results);
+      sendSMS(clientNumbers, message);
+      cb(null, clientNumbers);
     });
   };
   Client.remoteMethod('sendSMSToAfternoonClient', {
@@ -54,12 +57,13 @@ module.exports = function(Client) {
     returns: { arg: 'OK', type: 'string' },
   });
 
-  Client.sendSMSToEveningClient = function(message, cb) {
-    Client.find({ where: { evening: true } }, function(err, results) {
-      results.map(function(result) {
-        sendSMS(result, message);
+  Client.sendSMSToEveningClient = (message, cb) => {
+    Client.find({ where: { evening: true } }, (err, results) => {
+      const clientNumbers = results.map(client => {
+        return String(client.number);
       });
-      cb(null, results);
+      sendSMS(clientNumbers, message);
+      cb(null, clientNumbers);
     });
   };
   Client.remoteMethod('sendSMSToEveningClient', {
