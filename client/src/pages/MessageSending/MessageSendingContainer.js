@@ -1,14 +1,13 @@
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import MessageSending from './MessageSending';
-import * as MessageSendingActions from '../../modules/Message/actions';
+import { sendMessage } from '../../modules/Message/actions';
 
 const mapStateToProps = state => ({
   toast: state.toastr.wording,
 });
 
-const MapDispatchToProps = dispatch => {
-  return bindActionCreators(MessageSendingActions, dispatch);
+const MapDispatchToProps = {
+  sendMessage,
 };
 
 export default connect(mapStateToProps, MapDispatchToProps)(MessageSending);
