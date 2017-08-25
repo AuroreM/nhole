@@ -25,3 +25,10 @@ export function deleteClient(clientId) {
     clientId,
   };
 }
+
+export function updateClientsListAfterOneDeleted(clientId) {
+  return {
+    type: 'UPDATE_CLIENTS_LIST_AFTER_ONE_DELETED',
+    clientId,
+  };
+}

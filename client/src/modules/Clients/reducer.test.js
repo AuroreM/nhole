@@ -65,4 +65,48 @@ describe('Clients reducer', () => {
     const nextState = reducer(initialState, action);
     expect(nextState.list).to.equal(clients);
   });
+
+  it('handles UPDATE_CLIENTS_LIST_AFTER_ONE_DELETED by updating the list', () => {
+    const initialStateWithClients = {
+      list: [
+        {
+          id: 1,
+          firstname: 'Aurore',
+          lastname: 'Ma',
+          number: '01',
+          morning: false,
+          lunch: true,
+          afternoon: false,
+          evening: true,
+        },
+        {
+          id: 2,
+          firstname: 'Christine',
+          lastname: 'Ma',
+          number: '02',
+          morning: true,
+          lunch: false,
+          afternoon: false,
+          evening: true,
+        },
+      ],
+    };
+    const action = {
+      type: 'UPDATE_CLIENTS_LIST_AFTER_ONE_DELETED',
+      clientId: 1,
+    };
+    const nextState = reducer(initialStateWithClients, action);
+    expect(nextState.list).to.deep.equal([
+      {
+        id: 2,
+        firstname: 'Christine',
+        lastname: 'Ma',
+        number: '02',
+        morning: true,
+        lunch: false,
+        afternoon: false,
+        evening: true,
+      },
+    ]);
+  });
 });

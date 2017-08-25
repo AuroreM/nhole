@@ -1,10 +1,15 @@
 import { connect } from 'react-redux';
+import _ from 'lodash';
 import ClientsDisplay from './ClientsDisplay';
-import { getClients } from '../../modules/Clients/actions';
+import { getClients, deleteClient, updateClientsListAfterOneDeleted } from '../../modules/Clients/actions';
 
-const MapDispatchToProps = {
-  getClients,
-};
+const MapDispatchToProps = dispatch => ({
+  deleteClient: clientId => {
+    dispatch(updateClientsListAfterOneDeleted(clientId));
+    dispatch(deleteClient(clientId));
+  },
+  getClients: () => dispatch(getClients()),
+});
 
 const mapStateToProps = state => ({
   loading: state.loading,

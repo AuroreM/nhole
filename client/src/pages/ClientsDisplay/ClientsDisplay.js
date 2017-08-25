@@ -24,8 +24,8 @@ class ClientsDisplay extends React.Component {
   renderClientList() {
     return (
       <Clients>
-        {this.props.clients.list.map(function(client) {
-          return <Client client={client} key={client.id} />;
+        {this.props.clients.list.map(client => {
+          return <Client client={client} key={client.id} deleteClient={this.props.deleteClient} />;
         })}
       </Clients>
     );

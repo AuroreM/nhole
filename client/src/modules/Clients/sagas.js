@@ -1,7 +1,6 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
 import request from '../../utils/request';
 import { clientsListLoading, getClientsFail, getClientsSuccess } from './actions';
-import { getClients } from './actions';
 import { baseUrl } from '../../config';
 
 export function* getClientsList() {
@@ -24,8 +23,6 @@ export function* deleteClient(action) {
       'Content-Type': 'application/json',
     },
   });
-  // @Todo : Think about a way of not refreshing the list
-  yield put(getClients());
 }
 export function* ClientsSaga() {
   yield takeLatest('DELETE_CLIENT', deleteClient);

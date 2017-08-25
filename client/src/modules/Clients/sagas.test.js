@@ -22,12 +22,6 @@ describe('deleteClient Saga', () => {
       })
     );
   });
-
-  it('should call the API to get the updated list of clients', () => {
-    expect(saga.next().value).toEqual(put(getClients()));
-  });
-
-  // Message is not tested as the behaviour will change
 });
 
 describe('getClientsList Saga', () => {
