@@ -22,7 +22,7 @@
     "loopback-connector-mongodb": "^3.1.0",
     "loopback-connector-postgresql": "^2.8.0",
     "serve-favicon": "^2.0.1",
-    "smsgateway": "^0.1.2",
+    "sms-gateway-nodejs": "^0.1.0",
     "strong-error-handler": "^2.0.0"
   },
   "devDependencies": {
