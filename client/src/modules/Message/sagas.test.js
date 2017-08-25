@@ -16,10 +16,11 @@ describe('sendMessage Saga - Success case', () => {
 
   it('should call the API with the delete method', () => {
     expect(saga.next().value).toEqual(
-      call(request, `${baseUrl()}/api/Clients/morning`, {
+      call(request, `${baseUrl()}/api/Clients/sendMessage`, {
         method: 'POST',
         body: JSON.stringify({
           message: 'The message',
+          slot: 'morning',
         }),
         headers: {
           'Content-Type': 'application/json',

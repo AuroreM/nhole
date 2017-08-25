@@ -12,23 +12,9 @@ module.exports = Client => {
         console.log('Failed', message);
       });
   };
-  Client.sendSMSToMorningClient = (message, cb) => {
-    Client.find({ where: { morning: true } }, (err, results) => {
-      const clientNumbers = results.map(client => {
-        return String(client.number);
-      });
-      sendSMS(clientNumbers, message);
-      cb(null, clientNumbers);
-    });
-  };
-  Client.remoteMethod('sendSMSToMorningClient', {
-    accepts: [{ arg: 'message', type: 'string' }],
-    http: { path: '/morning', verb: 'post' },
-    returns: { arg: 'OK', type: 'string' },
-  });
 
-  Client.sendSMSToLunchClient = (message, cb) => {
-    Client.find({ where: { lunch: true } }, (err, results) => {
+  Client.sendSMS = (message, slot, cb) => {
+    Client.find({ where: { [slot]: true } }, (err, results) => {
       const clientNumbers = results.map(client => {
         return String(client.number);
       });
@@ -36,39 +22,10 @@ module.exports = Client => {
       cb(null, clientNumbers);
     });
   };
-  Client.remoteMethod('sendSMSToLunchClient', {
-    accepts: [{ arg: 'message', type: 'string' }],
-    http: { path: '/lunch', verb: 'post' },
-    returns: { arg: 'OK', type: 'string' },
-  });
 
-  Client.sendSMSToAfternoonClient = (message, cb) => {
-    Client.find({ where: { afternoon: true } }, (err, results) => {
-      const clientNumbers = results.map(client => {
-        return String(client.number);
-      });
-      sendSMS(clientNumbers, message);
-      cb(null, clientNumbers);
-    });
-  };
-  Client.remoteMethod('sendSMSToAfternoonClient', {
-    accepts: [{ arg: 'message', type: 'string' }],
-    http: { path: '/afternoon', verb: 'post' },
-    returns: { arg: 'OK', type: 'string' },
-  });
-
-  Client.sendSMSToEveningClient = (message, cb) => {
-    Client.find({ where: { evening: true } }, (err, results) => {
-      const clientNumbers = results.map(client => {
-        return String(client.number);
-      });
-      sendSMS(clientNumbers, message);
-      cb(null, clientNumbers);
-    });
-  };
-  Client.remoteMethod('sendSMSToEveningClient', {
-    accepts: [{ arg: 'message', type: 'string' }],
-    http: { path: '/evening', verb: 'post' },
+  Client.remoteMethod('sendSMS', {
+    accepts: [{ arg: 'message', type: 'string' }, { arg: 'slot', type: 'string' }],
+    http: { path: '/sendMessage', verb: 'post' },
     returns: { arg: 'OK', type: 'string' },
   });
 };

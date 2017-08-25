@@ -5,8 +5,8 @@ import { clearToastr, displayToastr } from '../Toastr/actions';
 import { baseUrl } from '../../config';
 
 export function* sendMessage({ message, slot }) {
-  const requestURL = `${baseUrl()}/api/Clients/${slot}`;
-  const body = JSON.stringify({ message: message });
+  const requestURL = `${baseUrl()}/api/Clients/sendMessage`;
+  const body = JSON.stringify({ message, slot });
   try {
     yield call(request, requestURL, {
       method: 'POST',
