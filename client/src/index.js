@@ -6,6 +6,7 @@ import createSagaMiddleware from 'redux-saga';
 import { NewClientSaga } from './modules/NewClient/sagas';
 import { ClientsSaga } from './modules/Clients/sagas';
 import { MessageSaga } from './modules/Message/sagas';
+import { UserSaga } from './modules/User/sagas';
 import AppContainer from './AppContainer';
 import reducer from './modules/reducer';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -22,6 +23,7 @@ const store = createStore(reducer, {}, composeEnhancers(applyMiddleware(sagaMidd
 sagaMiddleWare.run(NewClientSaga);
 sagaMiddleWare.run(ClientsSaga);
 sagaMiddleWare.run(MessageSaga);
+sagaMiddleWare.run(UserSaga);
 
 // Needed for onTouchTap
 injectTapEventPlugin();

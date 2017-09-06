@@ -5,17 +5,13 @@ describe('User module', () => {
   describe('reducer', () => {
     it('should authorized the user when dispatching login action', () => {
       const action = {
-        type: 'LOGIN',
+        type: 'LOGIN_SUCCESS',
         payload: {
-          email: 'aurore@paris.com',
-          password: 'aurore',
+          token: '1234',
         },
       };
-      const initialState = {
-        isAuthorized: false,
-        token: 'token',
-      };
-      expect(reducer(initialState, action).token).to.equal('token');
+      const initialState = {};
+      expect(reducer(initialState, action).token).to.equal('1234');
       expect(reducer(initialState, action).isAuthorized).to.equal(true);
     });
   });

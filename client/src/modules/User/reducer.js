@@ -3,10 +3,10 @@ const initialState = {
 };
 export default (state = initialState, action) => {
   switch (action.type) {
-    case 'LOGIN':
+    case 'LOGIN_SUCCESS':
       return {
         ...state,
-        token: 'token',
+        token: action.payload.token,
         isAuthorized: true,
       };
     default:
