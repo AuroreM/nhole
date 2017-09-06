@@ -1,0 +1,33 @@
+{
+  "name": "Message",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "forceId": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "bigserial",
+      "required": true
+    },
+    "status": {
+      "type": "string"
+    },
+    "sentDate": {
+      "type": "timestamp",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "client": {
+      "type": "belongsTo",
+      "model": "Client",
+      "foreignKey": "clientId",
+      "required": true
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

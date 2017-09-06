@@ -36,6 +36,12 @@ Make sure you have installed :
     evening boolean,
     id bigserial
   );
+  CREATE TABLE message (
+    id bigserial,
+    status varchar(40),
+    sentDate TIMESTAMP WITH TIME ZONE,
+    clientId bigserial
+  );
   ```
 * Exit the container : `\q`
 

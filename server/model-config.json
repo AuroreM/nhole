@@ -28,5 +28,9 @@
   "Client": {
     "dataSource": "nholedb",
     "public": true
+  },
+  "Message": {
+    "dataSource": "nholedb",
+    "public": true
   }
 }
