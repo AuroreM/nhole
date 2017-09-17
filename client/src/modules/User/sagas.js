@@ -20,6 +20,9 @@ export function* login(action) {
     sessionStorage.setItem('jwtToken', JSON.stringify(response));
     yield put(loginSuccess());
   } catch (e) {
+    if (e.status === 401) {
+      yield put(displayToastr("L'authentification a échoué, vérifier votre email et votre mot de passe"));
+    }
     console.warn(`Login failure ${e}`);
   }
 }
