@@ -7,6 +7,7 @@ import ClientAddition from './pages/ClientAddition';
 import ClientsDisplay from './pages/ClientsDisplay';
 import MessageSending from './pages/MessageSending';
 import Login from './pages/Login';
+import Signup from './pages/Signup';
 
 const AppContainer = styled.div`
   display: flex;
@@ -78,7 +79,10 @@ class App extends React.Component {
             </BottomNavigation>
           </div>
         ) : (
-          <Login />
+          <div>
+            <Login />
+            <Signup />
+          </div>
         )}
       </AppContainer>
     );

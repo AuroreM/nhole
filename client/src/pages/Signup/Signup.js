@@ -11,7 +11,7 @@ const Body = styled.div`
   justify-content: center;
 `;
 
-class Login extends React.Component {
+class Signup extends React.Component {
   render() {
     return (
       <Body>
@@ -24,11 +24,11 @@ class Login extends React.Component {
             <label htmlFor="password">Mot de Passe</label>
             <Field name="password" component="input" type="password" />
           </div>
-          <button type="submit">Login</button>
+          <button type="submit">Signup</button>
         </form>
       </Body>
     );
   }
 }
 
-export default Login;
+export default Signup;

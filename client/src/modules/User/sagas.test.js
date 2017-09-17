@@ -14,6 +14,6 @@ describe('login Saga', () => {
   it('should call dispatch loginSuccess Action with the action token', () => {
     global.sessionStorage = jest.fn();
     global.sessionStorage.setItem = jest.fn();
-    expect(saga.next().value).toEqual(put(loginSuccess('1234')));
+    expect(saga.next().value).toEqual(put(loginSuccess()));
   });
 });

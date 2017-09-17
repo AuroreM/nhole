@@ -6,7 +6,6 @@ export default (state = initialState, action) => {
     case 'LOGIN_SUCCESS':
       return {
         ...state,
-        token: action.payload.token,
         isAuthorized: true,
       };
     default:

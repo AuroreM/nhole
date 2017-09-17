@@ -37,7 +37,7 @@ Make sure you have installed :
     id bigserial
   );
   CREATE TABLE "user" (
-    id UUID PRIMARY KEY,
+    id bigserial PRIMARY KEY,
     type VARCHAR(20),
     name VARCHAR(100),
     realm VARCHAR(255),

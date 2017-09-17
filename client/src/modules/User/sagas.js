@@ -1,27 +1,51 @@
-import { takeLatest, put } from 'redux-saga/effects';
-// import request from '../../utils/request';
+import { takeLatest, put, call } from 'redux-saga/effects';
+import request from '../../utils/request';
 import { loginSuccess } from './actions';
-// import { baseUrl } from '../../config';
+import { baseUrl } from '../../config';
 
-export function* login() {
-  // const requestURL = `${baseUrl()}/api/Clients`;
-  // try {
-  // yield call(request, requestURL, {
-  //   method: 'POST',
-  //   body,
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //   },
-  // });
-  sessionStorage.setItem('jwt', '1234');
-  yield put(loginSuccess('1234'));
-  // } catch (err) {
-  //   yield put(loginFailure("Un problème est survenu lors de l'authentification"));
-  // }
+export function* login(action) {
+  const requestURL = `${baseUrl()}/api/Users/login`;
+  const body = JSON.stringify({
+    email: action.payload.email,
+    password: action.payload.password,
+  });
+  try {
+    const response = yield call(request, requestURL, {
+      method: 'POST',
+      body,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    sessionStorage.setItem('jwtToken', JSON.stringify(response));
+    yield put(loginSuccess());
+  } catch (e) {
+    console.warn(`Login failure ${e}`);
+  }
+}
+
+export function* signup(action) {
+  const requestURL = `${baseUrl()}/api/Users`;
+  const body = JSON.stringify({
+    email: action.payload.email,
+    password: action.payload.password,
+  });
+  try {
+    yield call(request, requestURL, {
+      method: 'POST',
+      body,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  } catch (e) {
+    console.warn(`Signup failure ${e}`);
+  }
 }
 
 export function* UserSaga() {
   yield takeLatest('LOGIN', login);
+  yield takeLatest('SIGNUP', signup);
 }
 
 export default [UserSaga];

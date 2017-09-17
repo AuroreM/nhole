@@ -8,11 +8,18 @@ export function login(email, password) {
   };
 }
 
-export function loginSuccess(token) {
+export function signup(email, password) {
+  return {
+    type: 'SIGNUP',
+    payload: {
+      email,
+      password,
+    },
+  };
+}
+
+export function loginSuccess() {
   return {
     type: 'LOGIN_SUCCESS',
-    payload: {
-      token,
-    },
   };
 }
