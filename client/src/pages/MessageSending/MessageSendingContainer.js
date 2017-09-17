@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
 import MessageSending from './MessageSending';
 import { sendMessage } from '../../modules/Message/actions';
+import { toastrSelector } from '../../modules/Toastr/reducer';
 
 const mapStateToProps = state => ({
-  toast: state.toastr.wording,
+  toastr: toastrSelector(state),
 });
 
 const MapDispatchToProps = {

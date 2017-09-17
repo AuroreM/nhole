@@ -2,6 +2,7 @@ import { takeLatest, put, call } from 'redux-saga/effects';
 import request from '../../utils/request';
 import { loginSuccess } from './actions';
 import { baseUrl } from '../../config';
+import { displayToastr } from '../../modules/Toastr/actions';
 
 export function* login(action) {
   const requestURL = `${baseUrl()}/api/Users/login`;
@@ -20,9 +21,7 @@ export function* login(action) {
     sessionStorage.setItem('jwtToken', JSON.stringify(response));
     yield put(loginSuccess());
   } catch (e) {
-    if (e.status === 401) {
-      yield put(displayToastr("L'authentification a échoué, vérifier votre email et votre mot de passe"));
-    }
+    yield put(displayToastr("L'authentification a échoué, vérifier votre email et votre mot de passe"));
     console.warn(`Login failure ${e}`);
   }
 }
@@ -41,6 +40,7 @@ export function* signup(action) {
         'Content-Type': 'application/json',
       },
     });
+    // yield call(login);
   } catch (e) {
     console.warn(`Signup failure ${e}`);
   }

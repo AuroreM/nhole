@@ -8,6 +8,7 @@ import ClientsDisplay from './pages/ClientsDisplay';
 import MessageSending from './pages/MessageSending';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Toastr from './components/common/Toastr';
 
 const AppContainer = styled.div`
   display: flex;
@@ -80,6 +81,7 @@ class App extends React.Component {
           </div>
         ) : (
           <div>
+            <Toastr>{this.props.toast}</Toastr>
             <Login />
             <Signup />
           </div>

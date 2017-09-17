@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import reducer from './reducer';
+import reducer, { toastrSelector } from './reducer';
 
 describe('Toastr modules', () => {
   describe('reducer', () => {
@@ -25,5 +25,16 @@ describe('Toastr modules', () => {
       const nextState = reducer(initialState, action);
       expect(nextState.wording).to.equal('Foo');
     });
+  });
+});
+
+describe('toastSelector', () => {
+  it('should select the toast wording', () => {
+    const state = {
+      toastr: {
+        wording: 'Hello world!',
+      },
+    };
+    expect(toastrSelector(state)).to.equal('Hello world!');
   });
 });

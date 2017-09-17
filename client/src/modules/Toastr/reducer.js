@@ -13,3 +13,7 @@ export default function(state = { wording: '' }, action) {
   }
   return state;
 }
+
+export const toastrSelector = state => {
+  return state.toastr.wording;
+};
