@@ -59,6 +59,6 @@ describe('sendClient Saga when message is sent', () => {
   });
 
   it('should clear the toastr', () => {
-    expect(saga.next().value).toEqual(put(clearToastr("Un problème est survenu lors de l'enregistrement")));
+    expect(saga.next().value).toEqual(put(clearToastr()));
   });
 });

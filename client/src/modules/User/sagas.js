@@ -1,19 +1,16 @@
 import { takeLatest, put, call } from 'redux-saga/effects';
+import { delay } from 'redux-saga';
 import request from '../../utils/request';
 import { loginSuccess } from './actions';
 import { baseUrl } from '../../config';
-import { displayToastr } from '../../modules/Toastr/actions';
+import { displayToastr, clearToastr } from '../../modules/Toastr/actions';
 
-export function* login(action) {
+export function* loginCall(params) {
   const requestURL = `${baseUrl()}/api/Users/login`;
-  const body = JSON.stringify({
-    email: action.payload.email,
-    password: action.payload.password,
-  });
   try {
     const response = yield call(request, requestURL, {
       method: 'POST',
-      body,
+      body: JSON.stringify(params),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -24,6 +21,13 @@ export function* login(action) {
     yield put(displayToastr("L'authentification a échoué, vérifier votre email et votre mot de passe"));
     console.warn(`Login failure ${e}`);
   }
+}
+
+export function* login(action) {
+  yield call(loginCall, {
+    email: action.payload.email,
+    password: action.payload.password,
+  });
 }
 
 export function* signup(action) {
@@ -40,7 +44,13 @@ export function* signup(action) {
         'Content-Type': 'application/json',
       },
     });
-    // yield call(login);
+    yield call(loginCall, {
+      email: action.payload.email,
+      password: action.payload.password,
+    });
+    yield put(displayToastr('Votre compte a bien été créé.'));
+    yield call(delay, 2000);
+    yield put(clearToastr());
   } catch (e) {
     console.warn(`Signup failure ${e}`);
   }

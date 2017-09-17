@@ -1,18 +1,17 @@
 import { put, call } from 'redux-saga/effects';
+import { delay } from 'redux-saga';
 import { baseUrl } from '../../config';
 import request from '../../utils/request';
 import { loginSuccess } from './actions';
-import { login, signup } from './sagas';
+import { loginCall, login, signup } from './sagas';
+import { displayToastr, clearToastr } from '../Toastr/actions';
 
-describe('login Saga successfull', () => {
-  const action = {
-    type: 'LOGIN',
-    payload: {
-      email: 'aurore@a.com',
-      password: 'toto',
-    },
-  };
-  const saga = login(action);
+const params = {
+  email: 'aurore@a.com',
+  password: 'toto',
+};
+describe('loginCall successfull', () => {
+  const saga = loginCall(params);
 
   it('should call the API to authenticate  the user', () => {
     expect(saga.next().value).toEqual(
@@ -33,25 +32,50 @@ describe('login Saga successfull', () => {
   });
 });
 
+describe('login Saga successfull', () => {
+  const action = {
+    type: 'LOGIN',
+    payload: params,
+  };
+  const saga = login(action);
+
+  it('should call loginCall', () => {
+    expect(saga.next().value).toEqual(call(loginCall, params));
+  });
+});
+
 describe('signup Saga', () => {
   const action = {
     type: 'SIGNUP',
-    payload: {
-      email: 'aurore@a.com',
-      password: 'toto',
-    },
+    payload: params,
   };
   const saga = signup(action);
 
-  it('should call the API to authenticate  the user', () => {
+  it('should call the API to create the user', () => {
     expect(saga.next().value).toEqual(
       call(request, `${baseUrl()}/api/Users`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email: 'aurore@a.com', password: 'toto' }),
+        body: JSON.stringify(params),
       })
     );
+  });
+
+  it('should authenticate the user', () => {
+    expect(saga.next().value).toEqual(call(loginCall, params));
+  });
+
+  it('should display a success toastr', () => {
+    expect(saga.next().value).toEqual(put(displayToastr('Votre compte a bien été créé.')));
+  });
+
+  it('should wait 2 seconds', () => {
+    expect(saga.next().value).toEqual(call(delay, 2000));
+  });
+
+  it('should clear the toastr', () => {
+    expect(saga.next().value).toEqual(put(clearToastr()));
   });
 });
