@@ -10,3 +10,8 @@ export function displayToastr(wording) {
     wording,
   };
 }
+
+export const handleToastr = wording => ({
+  type: 'HANDLE_TOASTR',
+  wording,
+});

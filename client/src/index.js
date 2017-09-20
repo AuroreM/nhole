@@ -7,6 +7,7 @@ import { NewClientSaga } from './modules/NewClient/sagas';
 import { ClientsSaga } from './modules/Clients/sagas';
 import { MessageSaga } from './modules/Message/sagas';
 import { UserSaga } from './modules/User/sagas';
+import { ToastrSaga } from './modules/Toastr/sagas';
 import AppContainer from './AppContainer';
 import reducer from './modules/reducer';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -24,6 +25,7 @@ sagaMiddleWare.run(NewClientSaga);
 sagaMiddleWare.run(ClientsSaga);
 sagaMiddleWare.run(MessageSaga);
 sagaMiddleWare.run(UserSaga);
+sagaMiddleWare.run(ToastrSaga);
 
 // Needed for onTouchTap
 injectTapEventPlugin();

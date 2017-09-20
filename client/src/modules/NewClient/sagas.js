@@ -1,8 +1,7 @@
-import { delay } from 'redux-saga';
 import { takeLatest, call, put, select } from 'redux-saga/effects';
 import request from '../../utils/request';
 import { registerClientSuccess } from './actions';
-import { clearToastr, displayToastr } from '../Toastr/actions';
+import { handleToastr } from '../Toastr/actions';
 import { baseUrl } from '../../config';
 
 // @TODO: Use Redux form
@@ -35,11 +34,9 @@ export function* sendClient() {
       },
     });
     yield put(registerClientSuccess());
-    yield put(displayToastr('Client enregistré !'));
-    yield call(delay, 2000);
-    yield put(clearToastr());
+    yield put(handleToastr('Client enregistré !'));
   } catch (err) {
-    yield put(displayToastr("Un problème est survenu lors de l'enregistrement"));
+    yield put(handleToastr("Un problème est survenu lors de l'enregistrement"));
   }
 }
 
