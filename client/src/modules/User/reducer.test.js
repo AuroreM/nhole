@@ -3,7 +3,7 @@ import reducer, { authorizationSelector } from './reducer';
 
 describe('User module', () => {
   describe('reducer', () => {
-    it('should authorized the user when dispatching login action', () => {
+    it('should authorize the user when dispatching login action', () => {
       const action = {
         type: 'LOGIN_SUCCESS',
       };
@@ -13,7 +13,7 @@ describe('User module', () => {
   });
 
   describe('authorizationSelector', () => {
-    it('should false if the user is not authorized', () => {
+    it('should return false if the user is not authorized', () => {
       const initialState = {
         user: {
           isAuthorized: false,
