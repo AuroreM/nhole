@@ -44,9 +44,7 @@ class MessageSending extends React.Component {
     return (
       <MessageTyping style={{ height: '70vh' }}>
         <Title>Envoyez un message</Title>
-        <Toastr>
-          {this.props.toast}
-        </Toastr>
+        <Toastr>{this.props.toastr}</Toastr>
         <TextField
           underlineFocusStyle={styles.underlineFocusStyle}
           id="message"

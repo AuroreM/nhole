@@ -1,9 +1,8 @@
 import { put, call } from 'redux-saga/effects';
-import { delay } from 'redux-saga';
 import { baseUrl } from '../../config';
 import request from '../../utils/request';
 import { sendMessage } from './sagas';
-import { displayToastr, clearToastr } from '../Toastr/actions';
+import { handleToastr } from '../Toastr/actions';
 
 describe('sendMessage Saga - Success case', () => {
   const action = {
@@ -30,14 +29,6 @@ describe('sendMessage Saga - Success case', () => {
   });
 
   it('should display a successful toastr', () => {
-    expect(saga.next().value).toEqual(put(displayToastr('Message envoyé !')));
-  });
-
-  it('should wait 2 seconds', () => {
-    expect(saga.next().value).toEqual(call(delay, 2000));
-  });
-
-  it('should clear the toastr', () => {
-    expect(saga.next().value).toEqual(put(clearToastr()));
+    expect(saga.next().value).toEqual(put(handleToastr('Message envoyé !')));
   });
 });

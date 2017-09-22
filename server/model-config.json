@@ -4,7 +4,8 @@
     "mixins": ["loopback/common/mixins", "loopback/server/mixins", "../common/mixins", "./mixins"]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "nholedb",
+    "public": true
   },
   "AccessToken": {
     "dataSource": "db",

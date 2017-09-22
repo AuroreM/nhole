@@ -23,8 +23,7 @@ function checkStatus(response) {
     return response;
   }
 
-  const error = new Error(response.statusText);
-  error.response = response;
+  const error = new Error(response.statusText, { status: response.status });
   throw error;
 }
 
@@ -37,5 +36,7 @@ function checkStatus(response) {
  * @return {object}           The response data
  */
 export default function request(url, options) {
-  return fetch(url, options).then(checkStatus).then(parseJSON);
+  return fetch(url, options)
+    .then(checkStatus)
+    .then(parseJSON);
 }

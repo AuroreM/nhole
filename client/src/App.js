@@ -1,19 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
+import { BottomNavigation, BottomNavigationItem } from 'material-ui/BottomNavigation';
+import FontIcon from 'material-ui/FontIcon';
 import Header from './components/common/Header';
 import ClientAddition from './pages/ClientAddition';
 import ClientsDisplay from './pages/ClientsDisplay';
 import MessageSending from './pages/MessageSending';
-import { BottomNavigation, BottomNavigationItem } from 'material-ui/BottomNavigation';
-import FontIcon from 'material-ui/FontIcon';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import Toastr from './components/common/Toastr';
 
-const App = styled.div`
+const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
-  font-family: "Courier New", Courier, monospace;
+  font-family: 'Courier New', Courier, monospace;
 `;
 
-class AppContainer extends React.Component {
+class App extends React.Component {
   constructor() {
     super();
     this.state = { selectedIndex: 0 };
@@ -62,20 +65,30 @@ class AppContainer extends React.Component {
       </FontIcon>
     );
     return (
-      <App>
+      <AppContainer>
         <Header />
-        {this.renderTab()}
-        <BottomNavigation
-          selectedIndex={this.state.selectedIndex}
-          style={{ position: 'fixed', left: '0px', bottom: '0px' }}
-        >
-          <BottomNavigationItem icon={addClient} onClick={this.renderClientAddition} />
-          <BottomNavigationItem icon={seeList} onClick={this.renderClientsDisplay} />
-          <BottomNavigationItem icon={sendMessage} onClick={this.renderMessageSending} />
-        </BottomNavigation>
-      </App>
+        {this.props.isUserAuthorized ? (
+          <div>
+            {this.renderTab()}
+            <BottomNavigation
+              selectedIndex={this.state.selectedIndex}
+              style={{ position: 'fixed', left: '0px', bottom: '0px' }}
+            >
+              <BottomNavigationItem icon={addClient} onClick={this.renderClientAddition} />
+              <BottomNavigationItem icon={seeList} onClick={this.renderClientsDisplay} />
+              <BottomNavigationItem icon={sendMessage} onClick={this.renderMessageSending} />
+            </BottomNavigation>
+          </div>
+        ) : (
+          <div>
+            <Toastr>{this.props.toast}</Toastr>
+            <Login />
+            <Signup />
+          </div>
+        )}
+      </AppContainer>
     );
   }
 }
 
-export default AppContainer;
+export default App;

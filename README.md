@@ -27,15 +27,32 @@ Make sure you have installed :
   CREATE DATABASE nholedb;
   \connect nholedb;
   CREATE TABLE client (
-    firstname varchar(40),
-    lastname varchar(40),
-    number varchar(40),
-    morning boolean,
-    lunch boolean,
-    afternoon boolean,
-    evening boolean,
+    firstname VARCHAR(40),
+    lastname VARCHAR(40),
+    number VARCHAR(40),
+    morning BOOLEAN,
+    lunch BOOLEAN,
+    afternoon BOOLEAN,
+    evening BOOLEAN,
     id bigserial
   );
+  CREATE TABLE "user" (
+    id bigserial PRIMARY KEY,
+    type VARCHAR(20),
+    name VARCHAR(100),
+    realm VARCHAR(255),
+    username VARCHAR(20),
+    email VARCHAR(50),
+    password VARCHAR(255),
+    credentials TEXT,
+    verificationtoken VARCHAR(255),
+    emailverified BOOLEAN,
+    status VARCHAR(20),
+    created TIMESTAMP WITH TIME ZONE,
+    lastupdated TIMESTAMP WITH TIME ZONE,
+    createdat TIMESTAMP WITH TIME ZONE,
+    updatedat TIMESTAMP WITH TIME ZONE
+ );
   ```
 * Exit the container : `\q`
 

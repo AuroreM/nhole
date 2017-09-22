@@ -22,9 +22,7 @@ class ClientAddition extends React.Component {
         <InfoUpdate />
         <Title>Choisissez ses créneaux</Title>
         <SlotUpdate />
-        <Toastr>
-          {this.props.toast}
-        </Toastr>
+        <Toastr>{this.props.toastr}</Toastr>
         <Button onClick={this.props.registerClient} label="Enregistrer" />
       </Body>
     );

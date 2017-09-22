@@ -1,7 +1,6 @@
-import { delay } from 'redux-saga';
 import { takeLatest, call, put } from 'redux-saga/effects';
 import request from '../../utils/request';
-import { clearToastr, displayToastr } from '../Toastr/actions';
+import { handleToastr } from '../Toastr/actions';
 import { baseUrl } from '../../config';
 
 export function* sendMessage({ message, slot }) {
@@ -15,11 +14,9 @@ export function* sendMessage({ message, slot }) {
         'Content-Type': 'application/json',
       },
     });
-    yield put(displayToastr('Message envoyé !'));
-    yield call(delay, 2000);
-    yield put(clearToastr());
+    yield put(handleToastr('Message envoyé !'));
   } catch (err) {
-    yield put(displayToastr("Un problème est survenu, le message n'a pas été envoyé"));
+    yield put(handleToastr("Un problème est survenu, le message n'a pas été envoyé"));
   }
 }
 
