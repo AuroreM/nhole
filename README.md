@@ -51,8 +51,17 @@ Make sure you have installed :
     created TIMESTAMP WITH TIME ZONE,
     lastupdated TIMESTAMP WITH TIME ZONE,
     createdat TIMESTAMP WITH TIME ZONE,
-    updatedat TIMESTAMP WITH TIME ZONE
- );
+    updatedat TIMESTAMP WITH TIME ZONE,
+    smsgatewayemail VARCHAR(50),
+    smsgatewaypassword VARCHAR(255),
+    smsgatewaydeviceid VARCHAR(5)
+  );
+  CREATE TABLE accesstoken (
+    id VARCHAR(255) PRIMARY KEY,
+    ttl INTEGER,
+    created TIMESTAMP WITH TIME ZONE,
+    userid bigserial REFERENCES "user"(id)
+  );
   ```
 * Exit the container : `\q`
 

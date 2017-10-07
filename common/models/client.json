@@ -2,10 +2,10 @@
   "name": "Client",
   "base": "PersistedModel",
   "idInjection": true,
-  "forceId": false,
   "options": {
     "validateUpsert": true
   },
+  "forceId": false,
   "properties": {
     "id": {
       "type": "bigserial",
