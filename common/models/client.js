@@ -1,12 +1,17 @@
+const LoopBackContext = require('loopback-context');
+
 module.exports = Client => {
-  var smsGatewayPackage = require('sms-gateway-nodejs');
-  var smsGateway = smsGatewayPackage('a.malherbes@gmail.com', 'TOTOFOOBAR123');
-  var sendSMS = (clientNumbers, message) => {
+  const smsGatewayPackage = require('sms-gateway-nodejs');
+
+  const sendSMS = (clientNumbers, message) => {
+    const ctx = LoopBackContext.getCurrentContext();
+    const currentUser = ctx && ctx.get('currentUser');
+    const { smsGatewayEmail, smsGatewayPassword, smsGatewayDeviceId } = currentUser;
+    const smsGateway = smsGatewayPackage(smsGatewayEmail, smsGatewayPassword);
     smsGateway.message
-      .sendMessageToNumbers('46773', clientNumbers, message)
+      .sendMessageToNumbers(smsGatewayDeviceId, clientNumbers, message)
       .then(data => {
-        console.log(data);
-        console.log('Messages sent');
+        console.log('Messages sent', data);
       })
       .catch(message => {
         console.log('Failed', message);

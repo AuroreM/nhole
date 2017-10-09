@@ -7,7 +7,13 @@ export function* getClientsList() {
   const requestURL = `${baseUrl()}/api/Clients`;
   yield put(clientsListLoading());
   try {
-    const clients = yield call(request, requestURL, { method: 'GET' });
+    const clients = yield call(
+      request,
+      `${requestURL}?access_token=${JSON.parse(sessionStorage.getItem('jwtToken')).id}`,
+      {
+        method: 'GET',
+      }
+    );
     yield put(getClientsSuccess(clients));
   } catch (err) {
     // WARNING @TODO : le cas de failure ne fonctionne pas
@@ -16,7 +22,9 @@ export function* getClientsList() {
 }
 
 export function* deleteClient(action) {
-  const requestURL = `${baseUrl()}/api/Clients/${action.clientId}`;
+  const requestBaseUrl = `${baseUrl()}/api/Clients`;
+  const requestURL = `${requestBaseUrl}/${action.clientId}?access_token=${JSON.parse(sessionStorage.getItem('jwtToken'))
+    .id}`;
   yield call(request, requestURL, {
     method: 'DELETE',
     headers: {

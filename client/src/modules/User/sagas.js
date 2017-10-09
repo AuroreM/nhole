@@ -34,9 +34,9 @@ export function* signup(action) {
   const body = JSON.stringify({
     email: action.payload.email,
     password: action.payload.password,
-    smsgatewayemail: action.payload.smsGatewayEmail,
-    smsgatewaypassword: action.payload.smsGatewayPassword,
-    smsgatewaydeviceid: action.payload.smsGatewayDeviceId,
+    smsGatewayEmail: action.payload.smsGatewayEmail,
+    smsGatewayPassword: action.payload.smsGatewayPassword,
+    smsGatewayDeviceId: action.payload.smsGatewayDeviceId,
   });
   try {
     yield call(request, requestURL, {

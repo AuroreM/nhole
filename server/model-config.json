@@ -1,17 +1,7 @@
 {
   "_meta": {
-    "sources": [
-      "loopback/common/models",
-      "loopback/server/models",
-      "../common/models",
-      "./models"
-    ],
-    "mixins": [
-      "loopback/common/mixins",
-      "loopback/server/mixins",
-      "../common/mixins",
-      "./mixins"
-    ]
+    "sources": ["loopback/common/models", "loopback/server/models", "../common/models", "./models"],
+    "mixins": ["loopback/common/mixins", "loopback/server/mixins", "../common/mixins", "./mixins"]
   },
   "user": {
     "dataSource": "nholedb",
@@ -29,18 +19,18 @@
     }
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "nholedb",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "nholedb",
     "public": false,
     "options": {
       "strictObjectIDCoercion": true
     }
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "nholedb",
     "public": false
   },
   "Client": {

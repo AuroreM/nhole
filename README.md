@@ -60,8 +60,31 @@ Make sure you have installed :
     id VARCHAR(255) PRIMARY KEY,
     ttl INTEGER,
     created TIMESTAMP WITH TIME ZONE,
-    userid bigserial REFERENCES "user"(id)
+    userid bigserial REFERENCES "user"(id),
+    scopes VARCHAR(255) ARRAY
   );
+  CREATE TABLE acl (
+    id SERIAL PRIMARY KEY,
+    model VARCHAR(255),
+    property VARCHAR(255),
+    accesstype VARCHAR(255),
+    permission VARCHAR(255),
+    principaltype VARCHAR(255),
+    principalid VARCHAR(255)
+);
+  CREATE TABLE role (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description VARCHAR(255),
+    created TIMESTAMP WITH TIME ZONE,
+    modified TIMESTAMP WITH TIME ZONE
+);
+  CREATE TABLE rolemapping (
+    id SERIAL PRIMARY KEY,
+    principaltype VARCHAR(255),
+    principalid VARCHAR(255),
+    roleid INTEGER REFERENCES role(id)
+);
   ```
 * Exit the container : `\q`
 
