@@ -34,7 +34,8 @@ Make sure you have installed :
     lunch BOOLEAN,
     afternoon BOOLEAN,
     evening BOOLEAN,
-    id bigserial
+    id bigserial,
+    userId bigserial REFERENCES "user"(id)
   );
   CREATE TABLE "user" (
     id bigserial PRIMARY KEY,

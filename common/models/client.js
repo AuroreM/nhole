@@ -1,12 +1,21 @@
 const LoopBackContext = require('loopback-context');
+const smsGatewayPackage = require('sms-gateway-nodejs');
 
 module.exports = Client => {
-  const smsGatewayPackage = require('sms-gateway-nodejs');
+  Client.observe('after save', (ctx, next) => {
+    Client.findById(ctx.instance.id, (err, result) => {
+      result.updateAttribute('userId', getCurrentUser().id);
+      next();
+    });
+  });
+
+  const getCurrentUser = () => {
+    const ctx = LoopBackContext.getCurrentContext();
+    return (currentUser = ctx && ctx.get('currentUser'));
+  };
 
   const sendSMS = (clientNumbers, message) => {
-    const ctx = LoopBackContext.getCurrentContext();
-    const currentUser = ctx && ctx.get('currentUser');
-    const { smsGatewayEmail, smsGatewayPassword, smsGatewayDeviceId } = currentUser;
+    const { smsGatewayEmail, smsGatewayPassword, smsGatewayDeviceId } = getCurrentUser();
     const smsGateway = smsGatewayPackage(smsGatewayEmail, smsGatewayPassword);
     smsGateway.message
       .sendMessageToNumbers(smsGatewayDeviceId, clientNumbers, message)
