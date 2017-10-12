@@ -2,10 +2,10 @@
   "name": "Client",
   "base": "PersistedModel",
   "idInjection": true,
-  "forceId": false,
   "options": {
     "validateUpsert": true
   },
+  "forceId": false,
   "properties": {
     "id": {
       "type": "bigserial",
@@ -37,6 +37,10 @@
     "evening": {
       "type": "boolean",
       "required": true
+    },
+    "userId": {
+      "type": "bigserial",
+      "required": true
     }
   },
   "validations": [],
@@ -45,8 +49,27 @@
       "type": "hasMany",
       "model": "Message",
       "foreignKey": "clientId"
+    },
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "id"
     }
   },
-  "acls": [],
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": ["find"]
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
   "methods": {}
 }

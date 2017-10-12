@@ -17,8 +17,8 @@ const AppContainer = styled.div`
 `;
 
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = { selectedIndex: 0 };
   }
 
@@ -35,6 +35,13 @@ class App extends React.Component {
   renderClientAddition = () => this.setState({ selectedIndex: 0 });
   renderClientsDisplay = () => this.setState({ selectedIndex: 1 });
   renderMessageSending = () => this.setState({ selectedIndex: 2 });
+
+  componentWillMount() {
+    const token = JSON.parse(sessionStorage.getItem('jwtToken'));
+    if (!!token) {
+      this.props.redirectToApp();
+    }
+  }
 
   render() {
     const addClient = (

@@ -10,6 +10,14 @@ describe('User module', () => {
       const initialState = {};
       expect(reducer(initialState, action).isAuthorized).to.equal(true);
     });
+
+    it('should authorize the user when dispatching redirectToApp action', () => {
+      const action = {
+        type: 'REDIRECT_TO_APP',
+      };
+      const initialState = {};
+      expect(reducer(initialState, action).isAuthorized).to.equal(true);
+    });
   });
 
   describe('authorizationSelector', () => {

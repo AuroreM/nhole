@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import App from './App';
+import { redirectToApp } from './modules/User/actions';
 import { authorizationSelector } from './modules/User/reducer';
 import { toastrSelector } from './modules/Toastr/reducer';
 
@@ -8,4 +9,8 @@ const mapStateToProps = state => ({
   toast: toastrSelector(state),
 });
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = {
+  redirectToApp,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
