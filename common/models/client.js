@@ -27,6 +27,13 @@ module.exports = Client => {
       });
   };
 
+  Client.getByAuthenticatedUser = cb => {
+    const currentUserId = getCurrentUser().id;
+    Client.find({ where: { userId: currentUserId } }, (err, clients) => {
+      cb(null, clients);
+    });
+  };
+
   Client.sendSMS = (message, slot, cb) => {
     Client.find({ where: { [slot]: true } }, (err, results) => {
       const clientNumbers = results.map(client => {
@@ -41,5 +48,11 @@ module.exports = Client => {
     accepts: [{ arg: 'message', type: 'string' }, { arg: 'slot', type: 'string' }],
     http: { path: '/sendMessage', verb: 'post' },
     returns: { arg: 'OK', type: 'string' },
+  });
+
+  Client.remoteMethod('getByAuthenticatedUser', {
+    accepts: [],
+    http: { path: '/byAuth', verb: 'get' },
+    returns: { type: 'object', root: true },
   });
 };

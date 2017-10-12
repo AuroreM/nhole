@@ -37,6 +37,10 @@
     "evening": {
       "type": "boolean",
       "required": true
+    },
+    "userId": {
+      "type": "bigserial",
+      "required": true
     }
   },
   "validations": [],

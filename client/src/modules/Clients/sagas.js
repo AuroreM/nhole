@@ -4,7 +4,7 @@ import { clientsListLoading, getClientsFail, getClientsSuccess } from './actions
 import { baseUrl } from '../../config';
 
 export function* getClientsList() {
-  const requestURL = `${baseUrl()}/api/Clients`;
+  const requestURL = `${baseUrl()}/api/Clients/byAuth`;
   yield put(clientsListLoading());
   try {
     const clients = yield call(
