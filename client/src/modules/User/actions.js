@@ -21,6 +21,10 @@ export function signup(email, password, smsGatewayEmail, smsGatewayPassword, sms
   };
 }
 
+export const redirectToApp = () => ({
+  type: 'REDIRECT_TO_APP',
+});
+
 export function loginSuccess() {
   return {
     type: 'LOGIN_SUCCESS',
