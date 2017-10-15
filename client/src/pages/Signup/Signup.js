@@ -24,6 +24,18 @@ class Signup extends React.Component {
             <label htmlFor="password">Mot de Passe</label>
             <Field name="password" component="input" type="password" />
           </div>
+          <div>
+            <label htmlFor="email">Email utilisé pour SMS Gateway Me</label>
+            <Field name="smsGatewayEmail" component="input" type="email" />
+          </div>
+          <div>
+            <label htmlFor="password">Mot de Passe utilisé pour SMS Gateway Me</label>
+            <Field name="smsGatewayPassword" component="input" type="password" />
+          </div>
+          <div>
+            <label htmlFor="string">Device ID donné par SMS Gateway Me</label>
+            <Field name="smsGatewayDeviceId" component="input" type="string" />
+          </div>
           <button type="submit">Signup</button>
         </form>
       </Body>

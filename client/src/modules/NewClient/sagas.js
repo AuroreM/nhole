@@ -14,7 +14,7 @@ export const getLunch = state => state.newClient.lunch;
 export const getEvening = state => state.newClient.evening;
 
 export function* sendClient() {
-  const requestURL = `${baseUrl()}/api/Clients`;
+  const requestURL = `${baseUrl()}/api/Clients?access_token=${JSON.parse(sessionStorage.getItem('jwtToken')).id}`;
   const body = JSON.stringify({
     firstname: yield select(getFirstname),
     lastname: yield select(getLastname),

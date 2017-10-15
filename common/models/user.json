@@ -1,0 +1,28 @@
+{
+  "name": "user",
+  "plural": "users",
+  "base": "User",
+  "strict": false,
+  "idInjection": true,
+  "properties": {
+    "smsGatewayEmail": {
+      "type": "String"
+    },
+    "smsGatewayPassword": {
+      "type": "String"
+    },
+    "smsGatewayDeviceId": {
+      "type": "String"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "clients": {
+      "type": "hasMany",
+      "model": "Client",
+      "foreignKey": "id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

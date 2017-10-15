@@ -8,6 +8,11 @@ export default (state = initialState, action) => {
         ...state,
         isAuthorized: true,
       };
+    case 'REDIRECT_TO_APP':
+      return {
+        ...state,
+        isAuthorized: true,
+      };
     default:
       break;
   }

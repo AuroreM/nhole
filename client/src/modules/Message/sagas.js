@@ -4,7 +4,8 @@ import { handleToastr } from '../Toastr/actions';
 import { baseUrl } from '../../config';
 
 export function* sendMessage({ message, slot }) {
-  const requestURL = `${baseUrl()}/api/Clients/sendMessage`;
+  const requestURL = `${baseUrl()}/api/Clients/sendMessage?access_token=${JSON.parse(sessionStorage.getItem('jwtToken'))
+    .id}`;
   const body = JSON.stringify({ message, slot });
   try {
     yield call(request, requestURL, {
