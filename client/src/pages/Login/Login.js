@@ -20,22 +20,20 @@ class Login extends React.Component {
     },
   };
 
-  renderField = field => {
-    return (
-      <TextField
-        {...field.input}
-        type={field.type}
-        underlineFocusStyle={this.styles.underlineFocusStyle}
-        hintText={field.input.name}
-      />
-    );
-  };
+  renderField = field => (
+    <TextField
+      {...field.input}
+      type={field.type}
+      underlineFocusStyle={this.styles.underlineFocusStyle}
+      hintText={field.displayedName}
+    />
+  );
 
   render() {
     return (
       <Body>
-        <Field name="Email" component={this.renderField} type="email" />
-        <Field name="Password" component={this.renderField} type="password" />
+        <Field name="email" displayedName="Email" component={this.renderField} type="email" />
+        <Field name="password" displayedName="Mot de passe" component={this.renderField} type="password" />
         <Button label="Login" onClick={this.props.handleSubmit} />
       </Body>
     );
