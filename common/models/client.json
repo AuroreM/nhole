@@ -8,8 +8,8 @@
   "forceId": false,
   "properties": {
     "id": {
-      "type": "bigserial",
-      "required": true
+      "type": "number",
+      "id": true
     },
     "firstname": {
       "type": "string"
@@ -39,7 +39,7 @@
       "required": true
     },
     "userId": {
-      "type": "bigserial",
+      "type": "number",
       "required": true
     }
   },

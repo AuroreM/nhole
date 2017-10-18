@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Field } from 'redux-form';
+import Button from '../../components/common/Button';
+import TextField from '../../components/common/TextField';
 
 const Body = styled.div`
   display: flex;
@@ -15,17 +17,9 @@ class Login extends React.Component {
   render() {
     return (
       <Body>
-        <form onSubmit={this.props.handleSubmit}>
-          <div>
-            <label htmlFor="email">Email</label>
-            <Field name="email" component="input" type="email" />
-          </div>
-          <div>
-            <label htmlFor="password">Mot de Passe</label>
-            <Field name="password" component="input" type="password" />
-          </div>
-          <button type="submit">Login</button>
-        </form>
+        <Field name="email" displayedName="Email" component={TextField} type="email" />
+        <Field name="password" displayedName="Mot de passe" component={TextField} type="password" />
+        <Button label="Login" onClick={this.props.handleSubmit} />
       </Body>
     );
   }
