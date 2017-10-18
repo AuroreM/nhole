@@ -26,19 +26,8 @@ Make sure you have installed :
   ```
   CREATE DATABASE nholedb;
   \connect nholedb;
-  CREATE TABLE client (
-    firstname VARCHAR(40),
-    lastname VARCHAR(40),
-    number VARCHAR(40),
-    morning BOOLEAN,
-    lunch BOOLEAN,
-    afternoon BOOLEAN,
-    evening BOOLEAN,
-    id bigserial,
-    userId bigserial REFERENCES "user"(id)
-  );
   CREATE TABLE "user" (
-    id bigserial PRIMARY KEY,
+    id BIGSERIAL PRIMARY KEY,
     type VARCHAR(20),
     name VARCHAR(100),
     realm VARCHAR(255),
@@ -57,11 +46,22 @@ Make sure you have installed :
     smsgatewaypassword VARCHAR(255),
     smsgatewaydeviceid VARCHAR(5)
   );
+  CREATE TABLE client (
+    firstname VARCHAR(40),
+    lastname VARCHAR(40),
+    number VARCHAR(40),
+    morning BOOLEAN,
+    lunch BOOLEAN,
+    afternoon BOOLEAN,
+    evening BOOLEAN,
+    id BIGSERIAL,
+    userId BIGSERIAL REFERENCES "user"(id)
+  );
   CREATE TABLE accesstoken (
     id VARCHAR(255) PRIMARY KEY,
     ttl INTEGER,
     created TIMESTAMP WITH TIME ZONE,
-    userid bigserial REFERENCES "user"(id),
+    userid SERIAL REFERENCES "user"(id),
     scopes VARCHAR(255) ARRAY
   );
   CREATE TABLE acl (
