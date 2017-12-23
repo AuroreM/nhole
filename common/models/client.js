@@ -32,6 +32,13 @@ module.exports = Client => {
     });
   };
 
+  Client.getByAuthenticatedUserBySlot = (slot, cb) => {
+    const currentUserId = getCurrentUser().id;
+    Client.find({ where: { userId: currentUserId, [slot]: true } }, (err, clients) => {
+      cb(null, clients);
+    });
+  };
+
   Client.sendSMS = (message, slot, cb) => {
     Client.find({ where: { [slot]: true } }, (err, results) => {
       const clientNumbers = results.map(client => {
@@ -51,6 +58,12 @@ module.exports = Client => {
   Client.remoteMethod('getByAuthenticatedUser', {
     accepts: [],
     http: { path: '/byAuth', verb: 'get' },
+    returns: { type: 'object', root: true },
+  });
+
+  Client.remoteMethod('getByAuthenticatedUserBySlot', {
+    accepts: [{ arg: 'slot', type: 'string' }],
+    http: { path: '/byAuth/slot', verb: 'get' },
     returns: { type: 'object', root: true },
   });
 };
